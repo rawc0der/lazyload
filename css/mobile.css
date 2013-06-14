@@ -1,0 +1,1863 @@
+/*
+ *	BetBrain
+ *	--------
+ *
+ *	Authors:	Viorel Mocanu - http://viorel.tel
+ *				Dragos Tudorache
+ *				Iliuta Stoica - http://iliutastoica.ro
+ *
+ *	Using:		http://html5boilerplate.com
+*/
+
+/**********/
+/* RESETS */
+/**********/
+
+/* general resets */
+html { overflow-y : scroll; color : #666; background : #fff; font-size : 100%; -webkit-overflow-scrolling : touch; -webkit-tap-highlight-color : rgba(0,0,0,0); -webkit-text-size-adjust : 100%; -ms-text-size-adjust : 100%; }
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{ margin : 0; padding : 0; }
+body { font-size : 9pt; line-height : 1.5em; _text-align : center; }
+
+/* fonts */
+body, select, input, textarea, button { font-family : "Aller", Helvetica, Arial, "Nimbus Sans L", "Liberation Sans", FreeSans, clean, sans-serif; }
+.ExoticLanguage,
+.Language-da_DK, .Language-de_DE, .Language-es_ES, .Language-fr_FR, .Language-hr_HR, .Language-no_NO, .Language-pl_PL, .Language-pt_PT, .Language-ro_RO, .Language-fi_FI, .Language-sv_SV, .Language-tr_TR, .Language-cz_CZ, .Language-hu_HU, .Language-me_ME, .Language-ur_UR, .Language-lv_LV, .Language-id_IN,
+.da .ToolOption, .de_DE .ToolOption, .es_ES .ToolOption, .fr_FR .ToolOption, .hr_HR .ToolOption, .no_NO .ToolOption, .pl_PL .ToolOption, .pt_PT .ToolOption, .ro_RO .ToolOption, .fi_FL .ToolOption, .sv_SE .ToolOption, .tr_TR .ToolOption, .cz_CZ .ToolOption, .hu_HU .ToolOption, .me_ME .ToolOption, .ur .ToolOption, .lv_LV .ToolOption, .id_IN .ToolOption { font-family : Helvetica, Arial, Ubuntu, FreeSans, clean, sans-serif; } /* diacriticals */
+.Language-lt_LT, .lt_LT .ToolOption, .Language-sk_SL, .sk_SL .ToolOption { font-family : "Trebuchet MS", Helvetica, Jamrul, Arial, sans-serif; } /* diacriticals */
+.Language-ru_RU, .Language-bg_BG, .Language-mk_MK, .Language-ua_UA, .ru_RU .ToolOption, .bg_BG .ToolOption, .mk_MK .ToolOption, .uk_UK .ToolOption { font-family : "Lucida Grande", "Lucida Sans Unicode", "Arial Narrow", Arial, Verdana, Helvetica, Tahoma, "Trebuchet MS", Ubuntu, FreeSans, sans-serif; } /* cyrillic */
+.Language-sr_YU, .sr_YU .ToolOption { font-family : "Resavska", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, Helvetica, Tahoma, "Trebuchet MS", Ubuntu, FreeSans, sans-serif; } /* cyrillic */
+.Language-gr_GR, .gr_GR .ToolOption { font-family : "Trebuchet MS", Helvetica, Arial, Verdana, sans-serif; } /* greek */
+.Language-zh_CN, .Language-yu_CN, .zh_CN .ToolOption, .yu_CN .ToolOption { font-family : Arial, "å®‹ä½“", SimSun, Helvetica, tahoma, verdana, sans-serif, "åŽæ–‡ç»†é»‘", STXihei; } /* chinese */
+.Language-ka_GE, .ka_GE .ToolOption { font-family : "BPG Glaho", "BPG Glaho 2008", "Sylfaen", "Arial Unicode MS", clean, sans-serif; } /* georgian */
+.Language-he_IL, .he_IL .ToolOption { font-family : Arial, "Arial Hebrew", "Arial Unicode MS", sans-serif; direction : rtl; text-align : right; } /* hebrew */
+.Language-ja_JP, .ja_JP .ToolOption { font-family : "MS Pã‚´ã‚·ãƒƒã‚¯", Osaka, "Hiragino Kaku Gothic", "ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3", "Lucida Grande", Arial, sans-serif; } /* hiragano */
+.Language-th_TH, .th_TH .ToolOption { font-family : Tahoma, "MS Sans Serif", Arial, "Arial Unicode MS", sans-serif; } /* thai */
+
+/* specific resets */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display : block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; } /* IE!!! */
+audio:not([controls]) { display : none; }
+address,caption,cite,code,dfn,em,strong,th,var { font-style : normal; font-weight : normal; }
+table { border-collapse : collapse; border-spacing : 0; font-size : inherit; font : 100%; }
+	td { vertical-align : top; }
+	strong,th { font-weight : bold; }
+	caption,th { text-align : left; }
+h1,h2,h3,h4,h5,h6 { font-size : 100%; font-weight : normal; orphan-words : 2; -webkit-word-wrap-limit : 2; }
+b, strong { font-weight : bold; }
+blockquote, q { quotes : none; }
+q { font-style : italic; }
+	blockquote:before,blockquote:after,q:before,q:after { content : ''; content : none; }
+ul,ol { list-style-position : outside; margin : 0; }
+	ol { list-style-type : decimal; }
+	li { list-style : none; }
+	nav ul,nav li { margin : 0; list-style : none; list-style-image : none; }
+pre,code,kbd,samp,tt { font-family : monospace, monospace; _font-family : 'courier new', monospace; font-size : 1em; }
+	em { font-style : italic; }
+	small { font-size : 85%; }
+	sup { vertical-align : top; }
+	sub { vertical-align : bottom; }
+	ins { background-color : #ff9; color : #080808; text-decoration : none; }
+	mark { background-color : #ff9; color : #080808; font-style : italic; font-weight : bold; }
+	del { text-decoration : line-through; }
+	pre { white-space : pre; white-space : pre-wrap; word-wrap : break-word; padding : 2em; }
+abbr,acronym { border : 0; font-variant : normal; }
+dfn { font-style : italic; }
+	abbr[title], dfn[title] { border-bottom : 1px dotted; cursor : help; }
+hr { display : block; height : 1px; border : 0; border-top : 1px solid #ccc; margin : 1em 0; padding : 0; }
+form { display : block; }
+	fieldset,img { border : 0; }
+	fieldset { display : block; }
+	label { cursor : pointer; }
+	button,input,select,textarea { margin : 0; font-size : 100%; vertical-align : baseline; *vertical-align : middle; font-family : inherit; } /* IE!!! */
+	button, input { line-height : normal; *overflow : visible; } /* IE!!! */
+		button, input[type="reset"], input[type="button"], input[type="submit"] { line-height : 1.3333em !important; }
+	input,textarea,select { background : #f8f8f8 url("http://gfxnew.betbrain.com/big-topbg.png") left -1000px repeat-x; color : #666; border : none; font-size : inherit; font-weight : inherit; vertical-align : middle; }
+	button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+	input[type="checkbox"], input[type="radio"] { box-sizing : border-box; background : transparent; }
+	input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-results-button, input[type="search"]::-webkit-search-results-decoration { display : none; }
+	input[type="search"] { -webkit-appearance : textfield; box-sizing : content-box; }
+	button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+	input:hover,textarea:hover,select:hover { background-color : #eee; color : #080808; }
+		.admin input:hover, .admin .textarea:hover, .admin select:hover { border : 1px solid #666; }
+	input:focus,textarea:focus,select:focus { background-color : #fff; color : #080808; box-shadow : 0 0 0.25em #eee; }
+	.admin input:focus, .admin textarea:focus, .admin select:focus { box-shadow : 0 0 1em #f00; }
+		.admin input:focus, .admin .textarea:focus, .admin select:focus { border : 1px solid #ef0000; }
+		.admin input[type="checkbox"], .admin input[type="radio"], input[type="search"], .admin input[type="checkbox"]:hover, .admin input[type="radio"]:hover, input[type="search"]:hover, .admin input[type="checkbox"]:focus, .admin input[type="radio"]:focus, input[type="search"]:focus { border : none; }
+	textarea { overflow : auto; vertical-align : top; }
+	input:valid,textarea:valid {  }
+	input:invalid,textarea:invalid { border-radius : 1px; box-shadow : 0 0 5px red; }
+	.no-boxshadow input:invalid,.no-boxshadow textarea:invalid { background-color : #f0dddd; }
+	legend { border : 0; *margin-left : -7px; padding : 0; } /* IE!!! */
+	.ie6 legend, .ie7 legend { margin-left : -7px; } 
+img { border : 0; -ms-interpolation-mode : bicubic; }
+svg:not(:root) { overflow : hidden; }
+figure { margin: 0; }
+
+::-moz-selection{ background : #2e9c2f; color : #fff; text-shadow : none; }
+::selection { background : #2e9c2f; color : #fff; text-shadow : none; }
+
+/****************/
+/* CUSTOM FONTS */
+/****************/
+
+/* Aller v1 */
+@font-face { font-family : 'Aller'; src : url('http://assets.betbrain.com/new/fonts/aller_bd-bb.eot'); src : local('â˜º'), url('http://assets.betbrain.com/new/fonts/aller_bd-bb.woff') format('woff'), url('http://assets.betbrain.com/new/fonts/aller_bd-bb.ttf') format('truetype'), url('http://assets.betbrain.com/new/fonts/aller_bd-bb.svgz#AllerBold') format('svg'), url('http://assets.betbrain.com/new/fonts/aller_bd-bb.svg#AllerBold') format('svg'); font-size-adjust : 0.54; font-weight : bold; font-style : normal; }
+@font-face { font-family : 'Aller'; src : url('http://assets.betbrain.com/new/fonts/aller_bdit-bb.eot'); src : local('â˜º'), url('http://assets.betbrain.com/new/fonts/aller_bdit-bb.woff') format('woff'), url('http://assets.betbrain.com/new/fonts/aller_bdit-bb.ttf') format('truetype'), url('http://assets.betbrain.com/new/fonts/aller_bdit-bb.svgz#AllerBoldItalic') format('svg'), url('http://assets.betbrain.com/new/fonts/aller_bdit-bb.svg#AllerBoldItalic') format('svg'); font-size-adjust : 0.54; font-weight : bold; font-style : italic; }
+@font-face { font-family : 'Aller'; src : url('http://assets.betbrain.com/new/fonts/aller_it-bb.eot'); src : local('â˜º'), url('http://assets.betbrain.com/new/fonts/aller_it-bb.woff') format('woff'), url('http://assets.betbrain.com/new/fonts/aller_it-bb.ttf') format('truetype'), url('http://assets.betbrain.com/new/fonts/aller_it-bb.svgz#AllerItalic') format('svg'), url('http://assets.betbrain.com/new/fonts/aller_it-bb.svg#AllerItalic') format('svg'); font-size-adjust : 0.52; font-weight : normal; font-style : italic; }
+@font-face { font-family : 'Aller'; src : url('http://assets.betbrain.com/new/fonts/aller_rg-bb.eot'); src : local('â˜º'), url('http://assets.betbrain.com/new/fonts/aller_rg-bb.woff') format('woff'), url('http://assets.betbrain.com/new/fonts/aller_rg-bb.ttf') format('truetype'), url('http://assets.betbrain.com/new/fonts/aller_rg-bb.svgz#AllerRegular') format('svg'), url('http://assets.betbrain.com/new/fonts/aller_rg-bb.svg#AllerRegular') format('svg'); font-size-adjust : 0.52; font-weight : normal; font-style : normal; }
+
+/******************/
+/* GENERIC STYLES */
+/******************/
+
+/* anchor style */
+a { color : #2e9c2f; text-decoration : none; }
+a:hover { color: #ef0000; }
+a:active { color : #080808; }
+a:focus { outline : none; text-decoration : underline; }
+a:hover, a:active { outline : none; }
+
+/************/
+/* CLEARFIX */
+/************/
+
+.Main { display : table-cell; *display : block; width : auto; } /* IE!!! */
+
+.Body, .Container, .Box, .Main, .EBItem, .PageTitle, .Item, .List, .SettingsLink, .OTR, .OTBookieLink { *zoom : 1; } /* IE!!! */
+
+.Body:after, .Container:after, .Box:after, .Main:after, .PageTitle:after, .EBItem:after, .Item:after, .List:after, .SettingsLink:after, .OTR:after, .OTBookieLink:after { clear : both; display : block; visibility : hidden; overflow : hidden; height : 0 !important; line-height : 0; font-size : xx-large; content : " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x "; }
+
+.highlight { background-color : #ff0; color : #080808; text-shadow : none; }
+
+/************/
+/* BOX FLOW */
+/************/
+
+.Header, .Menu, .Content, .Footer { -webkit-overflow-scrolling : touch; }
+
+/***********/
+/* BUTTONS */
+/***********/
+
+.Button { display : block; position : relative; text-align : left; background : #2e9c2f url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #fff; border : none; text-transform : uppercase; text-shadow : 0 -0.0833em 0 #126213; -webkit-border-radius : 0.5em; border-radius : 0.5em; box-shadow : 0 0.0833em 0 #126213; }
+	.Button:hover { background : #ef0000 url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #fff; text-shadow : 0 -0.0833em 0 #8c0000; box-shadow : 0 0.0833em 0 #8c0000; }
+	.Button:active { background : #999 url("http://gfxnew.betbrain.com/big-topbg.png") left -1156px repeat-x; color : #fff; text-shadow : 0 0.0833em 0 #080808; box-shadow : 0 -0.0833em 0 #080808; }
+		.Button strong { display : block; }
+
+.BigButton { display : block; width : 100%; padding : 0.3333em 0; position : relative; background : #d20000 url("http://gfxnew.betbrain.com/big-topbg.png") left bottom repeat-x; color : #fff; border-bottom : 0.0833em solid #080808; font-weight : bold; text-align : center; text-shadow : 0 0.0833em 0 #080808; box-shadow : 0 0.0833em 0 #080808; }
+	.BigButton:hover { background : #d20000 url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #fff; }
+	.BigButton:active { background : #222 url("http://gfxnew.betbrain.com/big-topbg.png") left -1156px repeat-x; color : #fff; }
+
+.BetNow { width : 100%; padding : 0.5em 0; margin : 0 0 0.5em 0; background : #2e9c2f url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #fff; font-weight : bold; text-align : center; text-shadow : 0 -0.0833em 0 #080808; }
+	.BetNow:hover { background : #d20000 url("http://gfxnew.betbrain.com/big-topbg.png") left bottom repeat-x; color : #fff; }
+	.BetNow:active { background : #222 url("http://gfxnew.betbrain.com/big-topbg.png") left -1156px repeat-x; color : #fff; text-shadow : 0 0.0833em 0 #080808; }
+
+.AccessibilityLinks, .Portal .AccessibilityLinks, .GoToMobile, .GoToContent { display : none; }
+
+/****************/
+/* HIDING STUFF */
+/****************/
+
+.ir { display : block; text-indent : 100%; overflow : hidden; white-space : nowrap; background-repeat : no-repeat; text-align : left; direction : ltr; }
+.ir br { display : none; }
+.hidden, .Hidden { display : none !important; visibility : hidden; }
+.visuallyhidden { border : 0; clip : rect(0, 0, 0, 0); height : 1px; margin : -1px; overflow : hidden; padding : 0; position : absolute; width : 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip : auto; height : auto; margin : 0; overflow : visible; position : static; width : auto; }
+.invisible, .Invisible { visibility : hidden; }
+
+/*********************/
+/* STRUCTURAL STYLES */
+/*********************/
+
+#framework {  }
+
+/********************/
+/* Global structure */
+/********************/
+
+	/* global odds display */
+	.O { overflow : hidden; }
+	.DeepLink { position : relative; }
+		.DeepLink:after { content : "\003e"; display : block; position : absolute; right : 0.1111em; top : 1.5em; font-size : 0.5em; line-height : 1.5em; }
+		.EmptyTableCell:after { content : ""; display : none; }
+		.O-Back:after, .O-Lay:after { top : 0.3333em; }
+	
+	/* bookie logos */
+	.BL { display : block; float : left; width : 75px; height : 16px; margin : 0 0.1666em 0 0; background : #eee url("http://gfxnew.betbrain.com/big-logos.jpg") -375px -304px no-repeat; font-size : 1em; line-height : 1.3333em; text-indent : 100%; overflow : hidden; white-space : nowrap; }
+
+	/* odds list */
+	.OddsList {  }
+		.Outcome { position : relative; }
+		.Linear .Outcome {  }
+		.OneWay .Outcome { float : none; width : 100%; }
+		.TwoWay .Outcome, .ThreeWay .Outcome, .SevenWay .Outcome { float : left; }
+			.TwoWay .Outcome { width : 50%; }
+			.ThreeWay .Outcome { width : 33.3333%; }
+			.SevenWay .Outcome { width : 14.2857%; }
+				.Param { display : block; padding : 0.5em 0.25em; color : #ccc; text-align : center; line-height : 1.1666em; white-space : nowrap; overflow : hidden; }
+				.EmptyCell { display : block; padding : 0.5em 0; background : transparent url("http://gfxnew.betbrain.com/bg-pattern.png") left top repeat; line-height : 1.1666em; cursor : not-allowed; }
+				.TheMatch .OddsList .EmptyCell { height : 2.9166em; }
+				.OldMatch .OddsList .EmptyCell, .MatchNextInfo .OddsList .EmptyCell { height : auto; }
+
+	/* odds list bet link */
+	.Bet { display : block; padding : 0.6666em 0.75em; position : relative; background : transparent url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #666; font-weight : normal; line-height : 1.1666em; white-space : nowrap; overflow : hidden; text-overflow : ellipsis; }
+	.TwoWay .Home .Bet, .TwoWay .Away .Bet, .TwoWay .Outcome1 .Bet, .TwoWay .Outcome3 .Bet { border-left : 0.0833em solid #eee; }
+	.ThreeWay .Home .Bet, .ThreeWay .Outcome1 .Bet, .TwoWay .Home .Bet, .TwoWay .Outcome1 .Bet { border-right : 0.0833em solid #eee; }
+	.ThreeWay .Home .Bet, .ThreeWay .Away .Bet, .ThreeWay .Outcome1 .Bet, .ThreeWay .Outcome3 .Bet { border-left : 0.0833em solid #eee; }
+		.Bet:hover { background : #d20000; color : #fff; text-shadow : none; }
+		.Bet:active { background : #333 url("http://gfxnew.betbrain.com/big-topbg.png") left -1156px repeat-x; color : #fff; text-shadow : 0 0.0833em 0 #000; }
+		.Bet .Odds { display : block; float : right; margin : 0 0 0 0.5em; font-weight : bold; text-transform : uppercase; }
+		.Bet .BetParam { display : block; float : right; margin : 0 0 0 0.5em; color : #000; text-shadow : none; }
+			.OutcomeName { display : block; /*min-*/height : 1.1666em; overflow : hidden; text-overflow : ellipsis; } /* problematic??? xxx */
+				.SummaryBets .OutcomeName, .SummaryList .OutcomeName { height : 1.1666em; white-space : nowrap; }
+				.opera .SummaryBets .OutcomeName, .opera .SummaryList .OutcomeName { height : 1.17em; }
+
+				.HideOutcomes .AverageOdds { display : inline; height : auto; font-size : 0.75em; line-height : 1em; }
+
+			@-moz-keyframes increase		{ 0% { background-color : #fff; color : #666; } 100% { background-color : #21a318; color : #fff; } }
+			@-webkit-keyframes increase		{ 0% { background-color : #fff; color : #666; } 100% { background-color : #21a318; color : #fff; } }
+			@-o-keyframes increase			{ 0% { background-color : #fff; color : #666; } 100% { background-color : #21a318; color : #fff; } }
+			@keyframes increase				{ 0% { background-color : #fff; color : #666; } 100% { background-color : #21a318; color : #fff; } }
+			
+			@-moz-keyframes decrease		{ 0% { background-color : #fff; color : #666; } 100% { background-color : #ed2525; color : #fff; } }
+			@-webkit-keyframes decrease		{ 0% { background-color : #fff; color : #666; } 100% { background-color : #ed2525; color : #fff; } }
+			@-o-keyframes decrease			{ 0% { background-color : #fff; color : #666; } 100% { background-color : #ed2525; color : #fff; } }
+			@keyframes decrease				{ 0% { background-color : #fff; color : #666; } 100% { background-color : #ed2525; color : #fff; } }
+
+			@-moz-keyframes justscored		{ 0% { color : #ef0000; } 100% { color : #fff; } }
+			@-webkit-keyframes justscored	{ 0% { color : #ef0000; } 100% { color : #fff; } }
+			@-o-keyframes justscored		{ 0% { color : #ef0000; } 100% { color : #fff; } }
+			@keyframes justscored			{ 0% { color : #ef0000; } 100% { color : #fff; } }
+
+			@-moz-keyframes justadded		{ 0% { background-color : #9c2e63; } 100% { background-color : #fff; } }
+			@-webkit-keyframes justadded	{ 0% { background-color : #9c2e63; } 100% { background-color : #fff; } }
+			@-o-keyframes justadded			{ 0% { background-color : #9c2e63; } 100% { background-color : #fff; } }
+			@keyframes justadded			{ 0% { background-color : #9c2e63; } 100% { background-color : #fff; } }
+
+			@-moz-keyframes scorertf		{ 0% { background-color : #ff0000; } 100% { background-color : #8c0000; } }
+			@-webkit-keyframes scorertf		{ 0% { background-color : #ff0000; } 100% { background-color : #8c0000; } }
+			@-o-keyframes scorertf			{ 0% { background-color : #ff0000; } 100% { background-color : #8c0000; } }
+			@keyframes scorertf				{ 0% { background-color : #ff0000; } 100% { background-color : #8c0000; } }
+
+			@keyframes scorechange			{ 0% { color : #ff0; left : -100%; } 100% { color : #fff; left : 100%; } }
+			@-moz-keyframes scorechange		{ 0% { color : #ff0; left : -100%; } 100% { color : #fff; left : 100%; } }
+			@-webkit-keyframes scorechange	{ 0% { color : #ff0; left : -100%; } 100% { color : #fff; left : 100%; } }
+			@-o-keyframes scorechange		{ 0% { color : #ff0; left : -100%; } 100% { color : #fff; left : 100%; } }
+
+			.Increase { background-color : #21a318; color : #fff; -moz-animation : increase 0.5s 10 alternate ease-out; -webkit-animation : increase 0.5s 10 alternate ease-out; -o-animation : increase 0.5s 10 alternate ease-out; animation : increase 0.5s 10 alternate ease-out; transform : translateZ(0); }
+			.Decrease { background-color : #ed2525; color : #fff; -moz-animation : decrease 0.5s 10 alternate ease-out; -webkit-animation : decrease 0.5s 10 alternate ease-out; -o-animation : decrease 0.5s 10 alternate ease-out; animation : decrease 0.5s 10 alternate ease-out; transform : translateZ(0); }
+				body .OddsTable .OTHighest, .MaxOdds .O, .OTRow:nth-child(2n+1) .MaxOdds .O, .BDMax { background : #f5dfea; color : #080808; }
+				body .Increased .Odds, body .Increased .O, body .O.Increased, .MaxOdds .Increased, .OTRow:nth-child(2n+1) .MaxOdds .Increased { color : #0a0; }
+				body .Decreased .Odds, body .Decreased .O, body .O.Decreased, .MaxOdds .Decreased, .OTRow:nth-child(2n+1) .MaxOdds .Decreased { color : #f00; }
+				body .Increased:hover .Odds, body .Decreased:hover .Odds, body .Increased .O:hover, body .O.Increased:hover, body .Decreased .O:hover, body .O.Decreased:hover, .MaxOdds .Increased:hover, .OTRow:nth-child(2n+1) .MaxOdds .Increased:hover, .MaxOdds .Decreased:hover, .OTRow:nth-child(2n+1) .MaxOdds .Decreased:hover { color : #fff; }
+					.Increased .Action, .Decreased .Action { color : #666; }
+
+			.JustScored { color : #ef0000; -moz-animation : justscored 0.5s 10 alternate ease-out; -webkit-animation : justscored 0.5s 10 alternate ease-out; -o-animation : justscored 0.5s 10 alternate ease-out; animation : justscored 0.5s 10 alternate ease-out; transform : translateZ(0); }
+			.JustAdded { background-color : #9c2e63; -moz-animation : justadded 0.5s 10 alternate ease-out; -webkit-animation : justadded 0.5s 10 alternate ease-out; -o-animation : justadded 0.5s 10 alternate ease-out; animation : justadded 0.5s 10 alternate ease-out; transform : translateZ(0); }
+			.JustAddedMinute, .SureBets .JustAddedMinute, .SureBets .JustAddedMinute:nth-child(2n) { background-color : #f5dfea; }
+
+			.Score, .ScoreBox, .FormError { background : #dc2525 url("http://gfxnew.betbrain.com/big-topbg.png") left bottom repeat-x; color : #fff; -moz-animation : scorertf 1s 10 alternate ease-out; -webkit-animation : scorertf 1s 10 alternate ease-out; -o-animation : scorertf 1s 10 alternate ease-out; animation : scorertf 1s 10 alternate ease-out; transform : translateZ(0); }
+
+			.ScoreChange { overflow : hidden; }
+				.Goal { display : block; width : 100%; position : absolute; left : -100%; top : 0; z-index : 10; font-size : 2.3333em; line-height : 1em; font-weight : bold; text-transform : uppercase; text-align : center; }
+				.MatchList .Expanded .Goal { font-size : 3.8333em; }
+				.ScoreChange .Goal { color : #ff0; left : 100%; -moz-animation : scorechange 3s 10 ease-out; -webkit-animation : scorechange 3s 10 ease-out; -o-animation : scorechange 3s 10 ease-out; animation : scorechange 3s 10 ease-out; transform : translateZ(0); }
+
+	/* icons */
+	.InfoIcon { display : block; width : 1.1666em; height : 1.1666em; background : #ccc url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #2e9c2f; border : 0.0833em solid #ccc; font-size : 1em; line-height : 1.1666em; font-weight : bold; text-align : center; text-shadow : 0 0.0833em 0 #fff; -webkit-border-radius : 0.25em; border-radius : 0.25em; }
+	.InfoIcon:hover { background-color : #eee; }
+	.InfoIcon:active { background-color : #ccc; }
+
+	.L-Sport { display : block; width : 1.1666em; height : 1.1666em; background : transparent url("http://gfxnew.betbrain.com/big-sprite.png") -54px 0 no-repeat; text-align : left; text-indent : 100%; overflow : hidden; white-space : nowrap; }
+
+	.Flag { display : block; width : 1.25em; height : 0.9166em; background : transparent url("http://gfxnew.betbrain.com/big-sprite.png") -357px -165px no-repeat; border : 0.0833em solid #ccc; text-align : left; text-indent : 100%; overflow : hidden; white-space : nowrap; }
+	a:hover .Flag { border : 0.0833em solid #ef0000; }
+
+	/* generic list */
+	.List { display : block; list-style-type : none; list-style-position : outside; }
+		.Item { display : block; border-bottom : 1px solid #eee; }
+			.ItemAside { display : block; float : left; }
+			.ItemMain { display : block; overflow : hidden; }
+
+/**********************/
+/* Specific structure */
+/**********************/
+
+.Framework { display : block; margin : 0 auto; padding : 0; position : relative; background : transparent; font-size : 9pt; line-height : 1.5em; text-align : left; }
+
+	/* top toolbar */
+	.Toolbar { display : block; width : 100%; position : absolute; z-index : 3; top : 0; left : 0; background : #eee url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; border-bottom : 0.0833em solid #ccc; border-left : none; border-right : none; z-index : 110; -webkit-box-shadow : 0 0 0.5em #999; box-shadow : 0 0 0.5em #999; text-shadow : 0 0.0833em 0 #fff; }
+		.Toolbar .Button { float : left; padding : 0.5em; border-radius : 0; box-shadow : none; }
+		.Toolbar .ToolbarMenu { float : right; }
+			.Toolbar .ButtonText { display : block; width : 2.6666em; height : 2.6666em; background : magenta; overflow : hidden; white-space : nowrap; text-indent : 100%; }
+
+		.ToolbarHeader { display : block; overflow : hidden; text-align : center; font-size : 2em; line-height : 1.8333em; white-space : nowrap; overflow : hidden; text-overflow : ellipsis; }
+			.ToolbarLogo { display : inline-block; vertical-align : middle; }
+		
+		.Breadcrumbs { display : block; clear : both; background : #ddd url("http://gfxnew.betbrain.com/big-topbg.png") left -15px repeat-x; }
+			.Toolbar .SearchButton { display : block; float : right; overflow : hidden; white-space : nowrap; text-indent : 100%; }
+			.BreadList { display : block; overflow : hidden; }
+				.BLItem { display : block; float : left; border-right : 0.0833em solid #ccc; }
+				.BLMatch { display : none; }
+				.BLTour { float : none; overflow : hidden; }
+					.BLLink { display : block; width : 3.6666em; height : 3.6666em; background : magenta; overflow : hidden; white-space : nowrap; text-indent : 100%; }
+					.BLTour .BLLink, .BLText .BLLink { width : auto; height : 1.5em; padding : 1.0833em 0.75em; background : transparent; text-indent : 0; text-overflow : ellipsis; }
+
+	/* register incentive bottom toolbar */
+	.RegisterIncentive { display : block; width : 100%; padding : 0.75em 0; position : fixed; z-index : 3; bottom : 0; left : 0; background : #f4f4f4 url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; border-top : 0.0833em solid #ddd; box-shadow : 0 0 0.5em #ccc; }
+		.RegisterClose { display : block; float : right; padding : 0 0.75em; }
+			.RegisterClose .ButtonText { font-size : 2.6666em; line-height : 1em; }
+		.RegisterContainer { display : block; overflow : hidden; padding : 0 0 0 0.75em; }
+			.SignUpLink, .SignInLink { display : block; float : left; width : 50%; padding : 0; overflow : hidden; }
+			.SignUpLink { padding : 0; background : #ef0000 url("http://gfxnew.betbrain.com/bg-radial-100.png") center bottom no-repeat; background-size : 300% 210%; color : #fff; border : none; border-top : 0.0833em solid #fdd; border-bottom : 0.0833em solid #8c0000; text-shadow : 0 -0.0833em 0 #8c0000; border-radius : 0.75em; }
+			.SignUpLink:hover { background : #f5dfea url("http://gfxnew.betbrain.com/big-topbg.png") left -600px repeat-x; background-size : 1px 1546px; color : #666; border-top : 0.0833em solid #eee; border-bottom : 0.0833em solid #ccc; text-shadow : 0 0.0833em 0 #fff; }
+			.SignUpLink:active { background : #999 url("http://gfxnew.betbrain.com/big-topbg.png") left -1156px repeat-x; background-size : 1px 1546px; color : #fff; border-top : 0.0833em solid #080808; border-bottom : 0.0833em solid #eee; text-shadow : 0 0.0833em 0.0833em #000; }
+			.SignInLink { padding : 0.0833em 0; }
+				.SignLinkInner { display : block; padding : 0.4166em 0.75em; background : transparent url("http://gfxnew.betbrain.com/bg-radial-50.png") center top no-repeat; background-size : 100% 220%; }
+					.SignTitle { display : block; text-transform : uppercase; white-space : nowrap; overflow : hidden; }
+						.SignIcon { display : block; float : left; width : 1.5em; height : 1.5em; margin : 0 0.25em 0 0; background : transparent url("http://gfxnew.betbrain.com/big-sprite.png") -402px -18px no-repeat; text-indent : 100%; overflow : hidden; white-space : nowrap; }
+						.SignUpIcon { background-position : -420px -36px; }
+						.SignUpLink:hover .SignUpIcon { background-position : -402px -36px; }
+						.SignUpLink:active .SignUpIcon { background-position : -438px -36px; }
+						.SignInIcon { background-position : -402px -18px; }
+						.SignInLink:hover .SignInIcon { background-position : -420px -18px; }
+						.SignInLink:active .SignInIcon { background-position : -438px -18px; }
+			.SignOutButton { display : block; float : left; padding : 0 0.75em; background-color : #666; text-shadow : 0 -0.0833em 0 #333; box-shadow : 0 0.0833em 0 #333; }
+
+	/* page content */
+	.Content { display : block; clear : both; padding : 7.4166em 0 0 0; position : relative; z-index : 1; }
+
+		/**************************/
+		/* NEXT MATCHES PAGE      */
+		/**************************/
+
+		.NextMatchesList {  }
+			.Match {  }
+				.MatchLink { display : block; float : left; width : 50%; padding : 0.1666em 0 0 0; }
+				.MatchLink:hover { background : #f8f8f8; }
+
+					/* pre-live match */
+					.Match .StartDate { display : block; color : #999; }
+						.SD-Date { display : block; padding : 0.2222em 0.3333em 0 0.3333em; font-size : 1.5em; line-height : 1em; }
+						.SD-Time { display : block; padding : 0 0.5em 0 0.5em; }
+
+					/* default football + binary groups score */
+					.LiveInfo { min-width : 8.25em; }
+						.ScoreMain { display : block; float : left; padding : 0 0.25em; color : #ef0000; font-size : 1.5em; line-height : 2.4444em; font-weight : normal; letter-spacing : -1px; }
+						.ScorePast { display : block; padding : 0.3333em 0 0 0; font-weight : bold; color : #999; }
+						.TimeSection { display : block; color : #ef0000; }
+						.LiveMatch .StartDate { display : none; }
+
+					/* special case for basketball */
+					.Score-LargeBP .LiveInfo {  }
+						.Score-LargeBP .ScorePast { display : none; }
+						.Score-LargeBP .TimeSection { display : none; }
+
+					/* tennis and set-based score */
+					.Score-Groups .LiveInfo {  }
+						.Score-Groups .ScorePast { overflow : hidden; width : 5.1666em; font-weight : normal; }
+						.Score-Groups .TimeSection { display : none; }
+
+					/* special case for baseball */
+					.Score-LargeG .LiveInfo {  }
+						.Score-LargeG .ScorePast { width : 6.5em; padding : 1em 0.3333em 0 0; font-size : 0.75em; line-height : 1.3333em; }
+
+					/* no score */
+					.NoScore { background : transparent url("http://gfxnew.betbrain.com/bg-pattern.png") left top repeat; }
+						.NoScore .ScoreMain { font-weight : normal; color : #ccc; letter-spacing : 4px; }
+						.NoScore .ScorePast { font-weight : normal; }
+						.NoScore .TimeSection { font-size : 0.75em; line-height : 1em; }
+
+					/* match details */
+					.MatchInfo { display : block; }
+						.Match-P { display : block; padding : 0.125em 0 0 0; white-space : nowrap; overflow : hidden; text-overflow : ellipsis; font-size : 1.3333em; line-height : 1.25em; font-weight : bold; }
+						.Match-L { display : block; padding : 0 0 0.3333em 0; color : #666; white-space : nowrap; overflow : hidden; text-overflow : ellipsis; }
+							.L-Sport { display : block; float : left; margin : 0.0833em 0.25em 0 0; }
+							.L-Region { display : block; float : left; margin : 0.1666em 0.25em -0.1666em 0; }
+							.L-Tour { display : block; float : left; margin : 0 0.3333em 0 0; font-size : 0.75em; line-height : 2em; }
+							.L-BetType { display : block; padding : 0.1111em 0.3333em 0 0.3333em; margin : 0 0.3333em 0 0; background : #f8f8f8; color : #080808; font-size : 0.75em; line-height : 1.8888em; text-align : right; white-space : nowrap; overflow : hidden; text-overflow : ellipsis; border-radius : 0.3333em; }
+							.L-BookieNo { display : block; float : right; margin : 0 0.3333em; font-size : 0.75em; line-height : 1.8888em; }
+								.L-BNLive { color : #ef0000; }
+
+						.MatchLink:hover .ScorePast, .MatchLink:hover .Match-L, .MatchLink:hover .TimeSection, .MatchLink:hover .StartDate { color : inherit; }
+						
+						.Match .EmptyCell { padding : 0; }
+							.Match .Bet { min-height : 2.5em; }
+							.EmptyCell .Bet:hover, .EmptyCell .Bet:active { background : transparent; }
+
+				.OddsList { display : block; float : right; width : 50%; }
+
+			/* pagination */
+			.Pagination { display : block; clear : both; height : 3.6666em; margin : 1.5em 0; border-left : 0.0833em solid #eee; }
+				.P-i { display : block; float : left; width : 10%; text-align : center; }
+					.P-A, .P-etc { display : block; height : 3.5em; background : #f4f4f4 url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #999; border : 0.0833em solid #eee; border-left : none; line-height : 3.5em; text-shadow : 0 0.0833em 0 #fff; }
+					.P-etc { background-color : #f8f8f8; }
+					.P-A:hover, .P-A:active { background-color : #ef0000; color : #fff; text-shadow : 0 -0.0833em 0 #8c0000; }
+					.P-Active .P-A { background : #ccc url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #fff; text-shadow : 0 -0.0833em 0 #aaa; }
+						.P-As { display : block; width : 2.6666em; height : 2.6666em; margin : 0.4166em auto; background : magenta; text-align : left; white-space : nowrap; overflow : hidden; text-indent : 100%; }
+
+		/**************************/
+		/* MATCH PAGE             */
+		/**************************/
+
+		/* Match title and Score */
+		.PageTitle { display : block; position : relative; }
+		.Score-Groups .PageTitle { padding : 0.75em 0 0 0; }
+
+			/* Match participants */
+			.Participants { display : block; float : left; width : 83.3333%; padding : 0.75em 0; }
+			.Score-BinaryPair .Participants { float : right; }
+			.Score-Groups .Participants { width : 56.2%; }
+				.TitleTeamLink { display : block; padding : 0 0.75em; position : relative; }
+				.TitleHome { padding : 0 0.75em 0.75em 0.75em; }
+				.Score-Groups .TitleHome { padding : 0 0.75em; }
+					.LMLogo { display : block; float : left; width : 2.9166em; height : 2.9166em; margin : 0 0.5em 0 0; }
+					.LMText { display : block; overflow : hidden; white-space : nowrap; text-overflow : ellipsis; font-size : 2em; line-height : 1.5em; }
+					.Serving { display : block; width : 2em; height : 2em; position : absolute; left : 0; top : 0.5em; background : magenta; white-space : nowrap; overflow : hidden; text-indent : 100%; }
+
+			/* Match score */
+			.ScoreArea { display : block; padding : 0.75em 0; overflow : hidden; }
+				.ScoreItem { display : block; float : left; width : 16.6666%; color : #ef0000; }
+			
+			/* football score */
+			.Score-BinaryPair .ScoreArea {  }
+				.Score-BinaryPair .ScoreItem { float : none; width : auto; text-align : center; }
+					.STitle, .SSeparator { display : none; }
+					.S { display : block; padding : 0 0.375em; font-size : 2em; line-height : 1.5em; }
+					.SH { padding : 0 0.375em 0.375em 0.375em; }
+
+			/* tennis score */
+			.Score-Groups .ScoreArea { padding : 0; position : relative; top : -0.25em; background : #fff; color : #666; }
+				.Score-Groups .ScoreItem { width : 14.2857%; color : #ccc; text-align : center; font-size : 1em; line-height : 1.5em; overflow : hidden; }
+
+				.NoPoints .ScoreItem { width : 16.6666%; }
+				.Sets-3 .ScoreItem { width : 20%; }
+				.Sets-3.NoPoints .ScoreItem { width : 25%; }
+				.TieBreakScore .ScoreItem { width : 12.5%; }
+
+				.Passed {  }
+				.Tied {  }
+				.Current {  }
+				.ScoreArea .Inactive { display : none; }
+				.TieBreak { color : #080808; }
+				.FullScore { display : block; float : left; width : 14.2857%; background : #dc2525 url("http://gfxnew.betbrain.com/big-topbg.png") left bottom repeat-x; color : #fff; -webkit-border-radius : 0.5em; border-radius : 0.5em; text-shadow : 0 -1px 0 #8c0000; }
+					.s-26 .ScoreArea .FullScore { float : none; width : auto; } /* cricket EP = 1 scor */
+					.ScoreArea .FullScore { padding : 0; }
+					.Sets-3 .ScoreArea .FullScore { width : 20%; }
+					.Sets-3.NoPoints .ScoreArea .FullScore { width : 25%; }
+					.s-6 .ScoreArea .FullScore { width : 28.5714%; }
+					.TieBreakScore .ScoreArea .FullScore { width : 12.5%; }
+				.Points { width : 25%; }
+
+					.Score-Groups .STitle { display : block; }
+					.Score-Groups .FullScore .STitle { color : #f99; }
+					.Score-Groups .S { padding : 0; font-size : 1.5em; line-height : 1.5em; }
+					.Score-Groups .SH { margin : 0 0 0.5em 0; }
+						.Passed .SH, .Passed .SA, .Points .SH, .Points .SA { color : #666; }
+						.Current .SH, .Current .SA { color : #dc2525; }
+							.Interrupted .Current .SH, .Interrupted .Current .SA { color : #080808; }
+						.TieBreak .SH, .TieBreak .SA { color : #dc2525; }
+						.FullScore .SH, .FullScore .SA { color : #fff; }
+						.HomeServe .SH, .AwayServe .SA { background : rgba(50,50,50,0.1); }
+							.HomeServe .FullScore .SH, .AwayServe .FullScore .SA { font-weight : bold; }
+						.ScoreArea .Hideable { display : none; }
+
+			/* Extra details box */
+			.ExtraContainer {  }
+			.Score-Groups .ExtraContainer { display : none; }
+				.ExtraDetails { display : block; padding : 0.75em; border-top : 0.0833em solid #eee; }
+					.Minute { color : #ef0000; font-weight : bold; }
+
+			/* EnetPulse stats & scores widget */
+			.minisitex {  }
+	
+				#enet_popup_box { position : absolute; z-index : 99; } /* popup */
+					#enet_popup_content { min-height : 6em; background : #fff; border : 0.0833em solid #aaa; -webkit-box-shadow : 0 1em 1em #aaa; box-shadow : 0 1em 1em #aaa; }
+						.fixed_content { background : #f4f4f4 url("http://gfxnew.betbrain.com/big-topbg.png") left -600px repeat-x; text-shadow : 0 0.0833em 0 #fff; }
+							.event_info { text-align : center; }
+							.fixed_content .bar1 { font-size : 0.75em; text-shadow : 0 0.1111em 0 #fff; }
+								.event_info .clear { display : none; }
+								.event_info_league_name { display : block; padding : 0 3em 0 1em; }
+								.event_info_start_date { display : block; padding : 0 3em 1em 1em; line-height : 1em; }
+								.event_info_team_1, .event_info_team_2, .incident_team_1, .incident_team_2 { width : 45%; text-align : center; }
+								.event_info_result, .incident_result { width : 10%; text-align : center; }
+	
+						.scroll_content { overflow-y : auto; overflow-x : hidden; }
+							.scroll_content .collapsable { border-left : none; border-right : none; }
+	
+							/* incidents */
+							.event_incident {  }
+								.incident_team_1 { padding : 0 0 0.25em 0; text-align : right; }
+								.incident_team_2 { padding : 0 0 0.25em 0; text-align : left; }
+	
+									.sprite, .incident_elapsed { display : block; float : right; }
+									.incident_team_2 .sprite, .incident_team_2 .incident_elapsed { float : left; }
+									.sprite { width : 1.5em; height : 1.5em; background : transparent url("http://gfxnew.betbrain.com/big-sprite.png") -492px top no-repeat; }
+										.goal, .itfk7, .itfk18, .itfk21, .itfk22 { background-position : -492px 0; } /* football goal */
+										.icehockey .goal, .icehockey .itfk7, .itfk18, .icehockey .itfk21, .icehockey .itfk22 { background-position : -506px -42px; } /* ice hockey goal */
+										.tennis_ball { background-position : -506px 0; } /* tennis point */
+										.itfk8 { background-position : -492px -14px; } /* goal from penalty */
+										.itfk9, .itfk11, .penalty.missed { background-position : -492px -28px; } /* missed penalty */
+										.itfk12, .penalty {  } /* penalty */
+										.itfk10, .own_goal { background-position : -492px -70px; } /* own goal */
+										.itfk14 { background-position : -492px -84px; } /* yellow card */
+										.itfk15 { background-position : -492px -112px; } /* second yellow card => red card */
+										.itfk16 { background-position : -492px -98px; } /* red card */
+										.itfk20, .subst { background-position : -492px -154px; } /* substitution */
+										.itfk_32, .subst_in { background-position : -492px -126px; } /* substitution in */
+										.itfk_20, .subst_out { background-position : -492px -140px; } /* substitution out */
+										.itfk23 {  } /* red bg = 2 */
+										.itfk24 {  } /* red bg = 5 */
+										.itfk25 {  } /* red bg = 10 */
+										.injurty, .injury {  } /* injury */
+									.incident_elapsed { margin : 0 0.3333em; color : #080808; }
+									.incident_player_name { overflow : hidden; }
+	
+									.incident_assist { margin : 0 0 0.3333em 0; font-style : italic; font-size : 0.75em; line-height : 1.5555em; }
+										.incident_assist div { float : right; margin : 0 0.3333em 0 0; }
+									.incident_team_2 .incident_assist {  }
+										.incident_team_2 .incident_assist div { float : left; margin : 0 0 0 0.3333em; }
+	
+										.incident_assist .clear { display : none; }
+	
+							/* lineup */
+							.fleft { float : left; width : 50%; }
+							.fright { float : right; width : 50%; }
+								.event_lineup {  }
+									.lineup_shirt_number { float : left; width : 3em; }
+									.lineup_player_name { float : left; }
+									.lineup_subst { float : right; color : #dc2525; }
+	
+							/* visual lineup */
+							.minisitex div.lineup_field_wrapper{padding:10px 0;}
+	
+							.minisitex ul.lineup_field{width:230px; height:120px; margin : auto; font-size:10px; background:url("http://gfxnew.betbrain.com/soccer_field.png");}
+							.minisitex ul.lineup_field li.player{width:20px; height:17px;}
+	
+							.minisitex ul.lineup_field{position:relative; z-index:1; border-radius:6px; color:#111;}
+							.minisitex ul.lineup_field li.player{position:absolute; z-index:2; cursor:pointer;}
+							.minisitex ul.lineup_field li.player:hover{z-index:3;}
+							.minisitex ul.lineup_field li.player:hover div.inside{border-radius:3px;}
+							.minisitex ul.lineup_field li.player div.inside{position:relative; left:-50%; top:-50%; height:100%; width:100%;}
+							.minisitex ul.lineup_field li.player img.shirt{position:absolute; top:0; left:0; height:100%; width:100%;}
+							.minisitex ul.lineup_field li.player div.shirt_number{position:absolute;top:3px; left:0; width:100%; height:10px; line-height:10px; font-weight:bold; text-align:center; letter-spacing:-1px;}
+							.minisitex ul.lineup_field li.player div.player_name{display:none; width : auto; position:absolute; top:-18px; font-size:11px; height:11px; line-height:11px; padding:2px; background:#333; color:#FFF; border-radius:2px; white-space:nowrap;}
+							.minisitex ul.lineup_field li.player.t1 div.player_name{left:-5px;}
+							.minisitex ul.lineup_field li.player.t2 div.player_name{right:-5px;}
+	
+							.minisitex ul.lineup_field li.player:hover div.player_name{display:block;}
+	
+							.minisitex ul.lineup_field li.player.t1.x1{left:5%;} .minisitex ul.lineup_field li.player.t2.x1{left:95%;}
+							.minisitex ul.lineup_field li.player.t1.x2{left:9%;} .minisitex ul.lineup_field li.player.t2.x2{left:91%;}
+							.minisitex ul.lineup_field li.player.t1.x3{left:13%;} .minisitex ul.lineup_field li.player.t2.x3{left:87%;}
+							.minisitex ul.lineup_field li.player.t1.x4{left:17%;} .minisitex ul.lineup_field li.player.t2.x4{left:83%;}
+							.minisitex ul.lineup_field li.player.t1.x5{left:21%;} .minisitex ul.lineup_field li.player.t2.x5{left:79%;}
+							.minisitex ul.lineup_field li.player.t1.x6{left:25%;} .minisitex ul.lineup_field li.player.t2.x6{left:75%;}
+							.minisitex ul.lineup_field li.player.t1.x7{left:29%;} .minisitex ul.lineup_field li.player.t2.x7{left:71%;}
+							.minisitex ul.lineup_field li.player.t1.x8{left:33%;} .minisitex ul.lineup_field li.player.t2.x8{left:67%;}
+							.minisitex ul.lineup_field li.player.t1.x9{left:37%;} .minisitex ul.lineup_field li.player.t2.x9{left:63%;}
+							.minisitex ul.lineup_field li.player.t1.x10{left:41%;} .minisitex ul.lineup_field li.player.t2.x10{left:59%;}
+							.minisitex ul.lineup_field li.player.t1.x11{left:45%;} .minisitex ul.lineup_field li.player.t2.x11{left:55%;}
+	
+							.minisitex ul.lineup_field li.player.t1.x1.y1{top:50%;} .minisitex ul.lineup_field li.player.t2.x1.y1{top:50%;}
+	
+							.minisitex ul.lineup_field li.player.t1.y1{top:90%;} .minisitex ul.lineup_field li.player.t2.y1{top:10%;}
+							.minisitex ul.lineup_field li.player.t1.y2{top:80%;} .minisitex ul.lineup_field li.player.t2.y2{top:20%;}
+							.minisitex ul.lineup_field li.player.t1.y3{top:70%;} .minisitex ul.lineup_field li.player.t2.y3{top:30%;}
+							.minisitex ul.lineup_field li.player.t1.y4{top:60%;} .minisitex ul.lineup_field li.player.t2.y4{top:40%;}
+							.minisitex ul.lineup_field li.player.t1.y5{top:50%;} .minisitex ul.lineup_field li.player.t2.y5{top:50%;}
+							.minisitex ul.lineup_field li.player.t1.y6{top:40%;} .minisitex ul.lineup_field li.player.t2.y6{top:60%;}
+							.minisitex ul.lineup_field li.player.t1.y7{top:30%;} .minisitex ul.lineup_field li.player.t2.y7{top:70%;}
+							.minisitex ul.lineup_field li.player.t1.y8{top:20%;} .minisitex ul.lineup_field li.player.t2.y8{top:80%;}
+							.minisitex ul.lineup_field li.player.t1.y9{top:10%;} .minisitex ul.lineup_field li.player.t2.y9{top:90%;}
+	
+					.minisitex .close { display : block; width : 1.5em; height : 1.5em; position : absolute; top : 0.75em; right : 0.75em; background : transparent url("http://gfxnew.betbrain.com/big-sprite.png") left -36px no-repeat; cursor : pointer; }
+					.minisitex .close:hover { background-position : -36px -36px; }
+					.minisitex .close:active { background-position : -18px -36px; }
+	
+				.widget_event_stats, .widget_league_stats { margin : 1.5em 0; border-bottom : 0.0833em solid #ccc; } /* default stats & scores widget containers on match, league */
+				.snippet_stage_standing { overflow : hidden; }
+	
+					.snippet_event_info, .widget_event_stats > .snippet_event_info { display : none; margin : -1.5em 0 1.5em 0; } /* event title */
+						.event_stage_name { margin : 1.5em 0 -1.5em 0; text-align : center; color : #080808; } /* event location */
+						.snippet_event_info .team_1, .snippet_event_info .team_2 { width : 38.1958% !important; padding : 0; background : transparent; font-size : 1.5em; line-height : 1em; } /* competitors */
+						.snippet_event_info .result { width : 23.6084% !important; background : transparent; font-size : 3em; line-height : 1em; } /* result */
+	
+					.minisitex table { width : 100%; } /* default table */
+	
+					/* text alignment classes */
+					.tcenter, .tcenter td, .tcenter th { text-align : center; vertical-align : middle; }
+						.even td { background-color : #f8f8f8; }
+	
+						.tcenter[data-filter="wins"], .tcenter[data-filter="hdcwins"], .tcenter[data-filter="over"] { color : #21a318; }
+							.tcenter[data-filter="wins"] { font-weight : bold; }
+						.tcenter[data-filter="draws"], .tcenter[data-filter="hdcdraws"] { color : #333; }
+							.tcenter[data-filter="draws"] { font-weight : bold; }
+						.tcenter[data-filter="defeits"], .tcenter[data-filter="hdcdefeits"], .tcenter[data-filter="under"] { color : #ed2525; }
+							.tcenter[data-filter="defeits"] { font-weight : bold; }
+						.tcenter[data-ha="home"] { background : #eee; }
+						.even .tcenter[data-ha="home"] { background : #ddd; }
+	
+					.tright, .bar3 .tright { text-align : right; }
+					.tleft, .bar3 .tleft { text-align : left; }
+	
+					/* default collapse/expand link/div? */
+					.minisitex .collapsable { margin : 0; position : relative; background : #eee url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #2e9c2f; border : 0.0833em solid #ccc; border-bottom : 0.0833em solid #bbb; cursor : pointer; text-shadow : 0 0.0833em 0 #fff; -webkit-box-shadow : 0 0.8333em 0.75em #ddd; box-shadow : 0 0.8333em 0.75em #ddd; }
+					.minisitex .collapsed { border-bottom : 0.0833em solid #eee; }
+					.minisitex .collapsable:hover { z-index : 2; background-color : #2e9c2f; border : 0.0833em solid #126213; color : #fff; text-shadow : 0 -0.0833em 0 #126213; }
+					.minisitex .collapsable:active { z-index : 2; background-color : #ef0000; border : 0.0833em solid #8c0000; color : #fff; text-shadow : 0 0.0833em 0 #080808; }
+						.collapsable .inside { padding : 0.25em 0.75em 0.3333em 0.75em; background : transparent url("http://gfxnew.betbrain.com/bg-boxtoggle.png") right -97px no-repeat; }
+						.collapsable:hover .inside { background-position : right 3px; }
+						.collapsable:active .inside { background-position : right 3px; }
+						.collapsed .inside { background-position : right -396px; }
+						.collapsed:hover .inside { background-position : right -296px; }
+						.collapsed:active .inside { background-position : right -296px; }
+						.loading .inside { background : #666 url("http://gfxnew.betbrain.com/loading-16.gif") 99.5% center no-repeat; color : #fff; text-shadow : 0 0.0833em 0 #080808; -moz-transition : all 1s ease-in-out; -webkit-transition : all 1s ease-in-out; -o-transition : all 1s ease-in-out; -ms-transition : all 1s ease-in-out; -khtml-transition : all 1s ease-in-out; transition : all 1s ease-in-out; }
+	
+					/* inner content */
+					.collapsable_content { padding : 0.75em; background : transparent; border-left : 0.0833em solid #eee; border-right : 0.0833em solid #eee; } /* inner content */
+						.collapsable_content .collapsable_content { padding : 0; border : none; }
+						.subtabs { display : block; }
+							.subtabs .tab { display : block; float : left; width : 28.5714%; padding : 0.3333em 0; background : #ccc url("http://gfxnew.betbrain.com/big-topbg.png") left -1077px repeat-x; color : #080808; text-align : center; cursor : pointer; text-shadow : 0 0.0833em 0 #fff; }
+							.subtabs .tab:hover { background-color : #2e9c2f; color : #fff; text-shadow : 0 -0.0833em 0 #126213; }
+							.subtabs .active, .subtabs .active:hover { background : #f8f8f8 url("http://gfxnew.betbrain.com/big-topbg.png") left -1006px repeat-x; color : #080808; text-shadow : 0 0.0833em 0 #fff; }
+						.collapsable_content .default { }
+						.stage_standing tbody {  }
+	
+							/*.stage_standing tbody tr:nth-child(1) td:last-child, .stage_standing tbody tr:nth-child(2) td:last-child, .stage_standing tbody tr:nth-child(3) td:last-child { font-weight : bold; color : #080808; }*/
+							.championsleague td, .championsleaguequal td { background : #f5dfea url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #080808; }
+							.championsleague td { padding : 0.4166em 0 0.3333em 0; }
+							.championsleaguequal td { background : transparent; }
+							.championsleague td:last-child, .championsleaguequal td:last-child, .uefacup td:last-child { font-weight : bold; }
+							.relegation td { background : #eee url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; font-style : italic; }
+	
+							.bar4 { border-top : 0.0833em solid #f4f4f4; }
+							.bar3 { -webkit-box-shadow : 0 0.0833em 0.1666em #aaa; box-shadow : 0 0.0833em 0.1666em #aaa; }
+								.grid { display : block; }
+									.grid li { display : block; float : left; width : 20%; }
+									.result .grid li { width : 50%; }
+									.event_info_score .grid li { width : 100%; }
+									.baseball .grid li { width : 8.3333%; }
+										.grid li div { display : inline; }
+											.extra { position : relative; top : -0.4444em; font-size : 0.75em; }
+	
+							.stage_standing .bar3 { -webkit-box-shadow : 0 0.1666em 0.1666em #aaa; box-shadow : 0 0.1666em 0.1666em #aaa; }
+							.stage_standing .bar3:nth-child(2) { position : relative; z-index : 10; }
+								.bar3 th { width : auto !important; padding : 0.3333em 0; background : #f8f8f8 url("http://gfxnew.betbrain.com/bg-darken-bottom.png") left top repeat-x; color : #080808; white-space : nowrap; font-weight : normal; text-align : center; text-shadow : 0 0.0833em 0 #fff; }
+								.stage_standing .bar3:nth-child(2) th { background : #f8f8f8 url("http://gfxnew.betbrain.com/bg-darken-bottom.png") left -2.1666em repeat-x; }
+								.date { padding : 0 0 0 0.75em; }
+								.bar3 .date { padding : 0.3333em 0 0.3333em 0.75em; }
+								.bar3 .smallwidth, .bar3 .largewidth { text-align : center; }
+								.css-tooltip { cursor : help; }
+								.css-tooltip:hover, .stage_standing .bar3:nth-child(2) .css-tooltip:hover { background : #fff url("http://gfxnew.betbrain.com/bg-darken-bottom.png") left center repeat-x; }
+									.css-tooltip-box { display : none; position : relative; right : 0; }
+									.css-tooltip:hover .css-tooltip-box { display : block; }
+										.css-tooltip-box div { padding : 0.3333em 0.5em; margin : 0; position : absolute; top : 1.5em; right : 0; background : #eee url("http://gfxnew.betbrain.com/big-topbg.png") left -600px repeat-x; border : 0.0833em solid #ddd; -webkit-border-radius : 0.6666em; border-radius : 0.6666em; text-shadow : 0 0.0833em 0 #fff; -webkit-box-shadow : 0 0.8333em 0.75em #aaa; box-shadow : 0 0.8333em 0.75em #aaa; }
+									.css-tooltip .sprite { display : block; float : left; width : 1.5em; height : 1.5em; margin : 0 auto; }
+									.smallwidth .sprite{width: 1.167em; height: 1.167em; float: none;}
+										.h2h { background : transparent url("http://gfxnew.betbrain.com/big-sprite.png") -402px 0 no-repeat; }
+	
+							.stage_standing .border-right { border-right : 0.0833em dotted #eee; }
+	
+							.pager { margin : 0.75em 0; }
+								.pager .inline-block { display : block; float : left; width : 33.3333%; margin : 0 !important; }
+									.pagerPreviousPage, .pagerNextPage { display : block; }
+	
+							.option_filter_tabs { position : absolute; margin : -2.6666em 0 1.5em 6.5em; }
+								.th_select {  }
+									.filter_tbody, .option_filter_tabs select { display : block; width : 100%; margin : 0 auto; background : #eee url("http://gfxnew.betbrain.com/big-topbg.png") left -600px repeat-x; border-bottom : 0.0833em solid #fff; -webkit-box-shadow : 0 -0.0833em 0 #ccc; box-shadow : 0 -0.0833em 0 #ccc; }
+	
+						.of_wrapper {  }
+						.winner .of_wrapper { color : #2e9c2f; font-weight : bold; }
+						.result_highlight { color : #080808; font-weight : bold; }
+							.link { color : #080808; cursor : pointer; }
+							.link:hover { color : #ef0000; }
+							.link:active { color : #666; }
+	
+						.startdate { width : 14.2857%; vertical-align : middle; }
+						.status { width : 14.2857%; vertical-align : middle; text-align : center; }
+	
+						.teams {  }
+							.teams .team_1, .teams .team_2 { display : block; padding : 0 0.75em 0 0; text-align : right; white-space : nowrap; }
+							.flag_small_all { display : none; }
+						.serv { width : 1.5em; }
+						.gamescore { width : 4em; text-align : center; }
+						.sets { width : 18%; }
+							.baseball .sets { width : 38.2%; }
+						.result { width : 5%; }
+						.icon { width : 1.5em; vertical-align : middle; }
+							.icon a { display : block; }
+	
+						.team_1_highlight { width : 30.5032%; text-align : right; }
+						.result_highlight { width : 10.4221%; text-align : center; }
+						.team_2_highlight { width : 30.5032%; text-align : left; }
+						.odds, .h2h_popup { display : none; }
+
+			/* Event Box */
+			.EventBoxContainer { display : block; height : 3.0833em; margin : 0 auto; padding : 0; position : relative; }
+				.EventBox { display : block; width : 100%; position : absolute; z-index : 2; border-bottom : 0.0833em solid #ccc; background : #eee; -webkit-border-radius : 0.5em; border-radius : 0.5em; text-align : center; }
+				.EventBox:hover { position : absolute; -webkit-box-shadow : 0 0.1666em 0.1666em #080808; box-shadow : 0 0.1666em 0.1666em #080808; }
+					.EBItem { display : none; position : relative; padding : 0.75em; border-bottom : 0.0833em solid #ccc; border-top : 0.0833em solid #f8f8f8; }
+						.EBItem:first-child { border-top : none; }
+						.EBItem:last-child { border-bottom : none; }
+					.ActiveEvent { display : block; background : transparent url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; border-top : none; }
+					.EventBox:hover .EBItem { display : block; background : transparent; }
+					.EventBox:hover .ActiveEvent { color : #080808; border-top : 0.0833em solid #f8f8f8; }
+						.EBTime { display : block; float : left; width : 2em; text-align : left; }
+						.EBItem .Event, .EventPopup .Event { display : block; float : left; margin : 0.0833em 0.25em 0 0; position : relative; top : 0; left : 0; }
+
+							.Event { display : block; width : 1.1666em; height : 1.1666em; margin : -0.25em 0 -0.0833em -0.5833em; position : absolute; top : 0; left : 0; z-index : 2; background : transparent url("http://gfxnew.betbrain.com/big-sprite.png") -492px 0 no-repeat; text-indent : 100%; overflow : hidden; white-space : nowrap; line-height : 1em; cursor : help; }
+								.MatchLength > .Event { overflow : visible; }
+									.EventText { display : block; width : 1.1666em; height : 1.1666em; text-indent : 100%; overflow : hidden; white-space : nowrap; z-index : 3; }
+
+									/* football + handball */
+									.s-1 .EPGoal { background-position : -492px 0; }
+									.EPGoalPenalty { background-position : -492px -14px; }
+									.EPMissedPenalty { background-position : -492px -28px; }
+									.EPGoalPenaltyShootout { background-position : -492px -42px; }
+									.EPMissedPenaltyShootout { background-position : -492px -56px; }
+									.EPOwnGoal { background-position : -492px -70px; }
+									.EPYellowCard { background-position : -492px -84px; }
+									.EPRedCard { background-position : -492px -98px; }
+									.EPSecondYellowRedCard { background-position : -492px -112px; }
+									.EPSubstitutionIn { background-position : -492px -126px; }
+									.EPSubstitutionOut { background-position : -492px -140px; }
+									.EPSubstitutionShort { background-position : -492px -154px; }
+									
+									/* tennis */
+									.EPSet { background-position : -506px 0; }
+									.EPTieBreak { background-position : -506px -14px; }
+									
+									/* basketball */
+									
+									/* handball */
+									
+									/* baseball */
+									.EPBaseballPoint { background-position : -506px -70px; }
+
+							.EBItem .EPYellowCard, .EventPopup .EPYellowCard, .EBItem .EPRedCard, .EventPopup .EPRedCard { margin : 0.1666em 0.25em -0.0833em 0; }
+						.EventPopup .Event { margin : -0.0833em 0.25em 0 0; }
+						.EBEvent { display : block; float : left; font-weight : bold; }
+						.EBSide { display : block; float : right; font-size : 0.75em; line-height : 2em; }
+						.EBPlayers { display : block; float : right; margin : 0 0 0 1em; font-weight : bold; font-size : 0.75em; line-height : 2em; }
+
+		/* Filter Triggers */
+		.SettingsLink { display : block; clear : both; margin : 0.75em 0; background : #eee url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; border : 1px solid #ccc; white-space : nowrap; overflow : hidden; text-overflow : ellipsis; }
+			.F-t { display : inline-block; padding : 0 0.3333em; border-right : 1px solid #ddd; font-size : 1.5em; line-height : 2.3333em; }
+			.F-Outcome { display : none; }
+			.ActionSymbol { display : block; float : right; position : relative; z-index : 1; }
+			.SettingsLink .ActionSymbol { width : 1.7777em; height : 1.7777em; margin : 0.2777em; padding : 0; background : magenta; border : none; line-height : 1.7777em; white-space : nowrap; overflow : hidden; text-indent : 100%; font-size : 1.5em; line-height : 2.3333em; }
+
+		/* Filter Pickers */
+		.FilterPickers { display : block; clear : both; }
+			.FilterPicker { display : block; background : #eee url("http://gfxnew.betbrain.com/big-topbg.png") left -15px repeat-x; }
+				.FPNav { float : left; padding : 0.5em; border-radius : 0; box-shadow : none; }
+				.PFNext { float : right; }
+					.FPNav .ButtonText { display : block; width : 2.6666em; height : 2.6666em; background : magenta; overflow : hidden; white-space : nowrap; text-indent : 100%; }
+				.FilterListContainer { display : block; position : relative; overflow-x : scroll; }
+					.FilterList { display : block; width : 300em; }
+						.FLItem { display : block; float : left; border-left : 0.0833em solid #f8f8f8; border-right : 0.0833em solid #ddd; }
+						.ActiveFLItem { border-left : 0.0833em solid #f66; border-right : 0.0833em solid #8c0000; }
+							.FLLink { display : block; padding : 0 0.5em; font-size : 1.5em; line-height : 2.4444em; text-shadow : 0 1px 0 #fff; }
+							.ActiveFLItem .FLLink { background : #ef0000 url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #fff; text-shadow : 0 -1px 0 #8c0000; box-shadow : 0 1px 0 #8c0000; }
+
+		/* Odds Table Header */
+		.OTFixedHeader { background : #eee; }
+			.OTFixedContainer {  }
+				.OTFixedHeader .OTHeader { margin : 0; background : transparent; font-weight : bold; border-top : 0.0833em solid #ddd; border-bottom : 0.0833em solid #ccc; }
+				.OTFixedHeader .Layout-NOP.OTHeader { border-bottom : 0.0833em solid #2e9c2f; }
+					.OTOrder { display : block; height : 1.5em; padding : 1.0833em 0.6666em 1em 0.6666em; overflow : hidden; white-space : nowrap; text-overflow : ellipsis; text-align : right; }
+					.OTOrderAlt { display : block; padding : 1.0833em 0.75em 1em 0.75em; color : #666; text-align : left; text-shadow : 0 0.0833em 0 #fff; }
+		
+		/* Odds Table Content */
+		.OddsTable { position : relative; border-bottom : 0.0833em solid #999; }
+			/* parameter group */
+			.OTPG {  }
+				/* odds table row */
+				.OTR { display : block; background : #fff url("http://gfxnew.betbrain.com/big-topbg.png") left -300px repeat-x; border-bottom : 0.0833em solid #eee; }
+				.OTR:nth-child(2n+1) { background-color : #f8f8f8; }
+				.OTFixedHeader .OTHeader:nth-child(2n+1) { background : transparent; }
+					/* odds table column */
+					.OTC { display : block; float : left; width : 14.6%; overflow : hidden; } /* column */
+						/* odds table cells */
+						.OTBookies { width : 56.2%; }
+							.OTBookieLink { display : block; padding : 1.0833em 0.5em 1em 0.5em; }
+								.OTTime { display : block; float : left; width : 0.25em; height : 1.5em; padding : 1.0833em 0 1em 0; margin : -1.0833em 0 -1em -0.5em; }
+									.GoodTime { background-color : #0c0; cursor : help; }
+									.MidTime { background-color : #f90; cursor : progress; }
+									.BadTime { background-color : #f00; cursor : not-allowed; }
+									.NoTime { background-color : #666; cursor : wait; }
+									.EmptyTime { background-color : #fff; }
+								.OTC .BL { display : block; float : left; margin : 0.0833em 0.25em; }
+								.Payout { display : block; white-space : nowrap; overflow : hidden; text-overflow : ellipsis; }
+						.OTO { position : relative; z-index : 1; }
+							.O { display : block; padding : 0.7222em 0.4444em 0.6666em 0.4444em; background : transparent url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #333; border-left : 1px solid #eee; font-size : 1.5em; line-height : 1em; text-align : right; text-shadow : 0 1px 0 #fff; }
+							.OTBookieLink:hover, .OTBookieLink:active, .O:hover, .O:active { background : #ef0000 url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; color : #fff; text-shadow : 0 -1px 0 #8c0000; }
+							.OTBookieLink:hover .BL, .OTBookieLink:active .BL { box-shadow : 0 -1px 0 #8c0000, 0 1px 0 #f66; }
+
+						/* N columns */
+						.Ncolumns .OTBookies, .NO-Bookmakers { width : 25%; }
+						.Ncolumns .OTBookies { padding-top : 3.6666em; }
+						.OddsTableContainer { display : block; float : left; width : 75%; position : relative; }
+
+							.OTCNav { display : block; float : left; width : 50%; height : 3.6666em; }
+								.OTCNav .ButtonText { display : block; height : 2.4444em; margin : -0.0833em 0 -0.0833em -0.0833em; background : #eee url("http://gfxnew.betbrain.com/big-topbg.png") left -1078px repeat-x; border : 0.0833em solid #ccc; font-size : 1.5em; text-align : center; line-height : 2.4444em; text-shadow : 0 1px 0 #fff; }
+							.OddsTableContainer .OTR { display : block; clear : both; }
+							.OTHeader .OddsTableContainer .OTR { border : none; }
+								.OddsTableContainer .OTO { display : block; float : left; width : 16.6666%; }
+							.NO-Row { width : auto; }
+
+/*********************/
+/*	 Browser Hacks 	*/
+/********************/
+
+.chromeframe { margin : 0.2em 0; background : #ccc; color : black; padding : 0.2em 0; }
+
+/************/
+/* IE HACKS */
+/************/
+
+.ie678 .foo {
+	color : green;		/* IE8 and below */  
+	*color : yellow;	/* IE7 and below */  
+	_color : orange;	/* IE6 */
+}
+
+/************************/
+/*    MEDIA QUERIES     */
+/************************/
+
+/* > 1600 */
+@media only screen and (min-width: 1600px){ /*100em*/
+
+	#framework { padding : 0 3.6666em; }
+
+	.Item { float : left; width : 50%; }
+		.MatchLink { margin : 0 0 0 -1px; border-left : 1px solid #eee; }
+			.Match-P {  }
+		.Outcome3 .Bet { border-right : 1px solid #eee; }
+
+} /* @media only screen and (min-width: 1600px) */
+
+/* < 1599 */
+@media only screen and (max-width: 1599px){ /*99.9375em*/
+
+	.OptionsList::before{ content: "1599"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : red; color : #fff; top : 0; left : 0; right : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+
+} /* @media only screen and (max-width: 1599px) */
+
+/* < 1332 */
+@media only screen and (max-width: 1332px){ /*83.25em*/
+
+	.OptionsList::before{ content: "1332"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : orange; color : #000; top : 0; left : 0; right : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+	.android .OptionsList::before{ content: "1332 android";}
+
+	html { -webkit-text-size-adjust : none; -ms-text-size-adjust : none; }
+	
+	.LiveInfo { min-width : 8.25em; }
+	.Score-Groups .ScorePast { display : none; }
+	.Score-Groups .TimeSection { display : block; padding : 1.0833em 0 0 0; }
+	.Score-LargeG .TimeSection { /*padding : 0.3333em 0 0 0;*/ }
+
+} /* @media only screen and (max-width: 1332px) */
+
+/* < 1152 */
+@media only screen and (max-width: 1152px){ /*72em*/
+
+	.OptionsList::before{ content: "1152"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : yellow; color : #000; top : 0; left : 0; right : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+	.android .OptionsList::before{ content: "1152 android";}
+
+} /* @media only screen and (max-width: 1152px) */
+
+/* < 1024 - Leaderboard 12 column fit */
+@media only screen and (max-width: 1024px){ /*64em*/
+
+	.OptionsList::before{ content: "1024"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : green; color : #fff; top : 0; left : 0; right : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+	.ipad .OptionsList::before{ content: "1024 ipad";}
+	.android .OptionsList::before{ content: "1024 android";}
+
+} /* @media only screen and (max-width: 1024px) */
+
+/* < 880 - toolbar fix */
+@media only screen and (max-width: 880px){ /*55em*/
+
+	.OptionsList::before{ content: "880"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : cyan; color : #000; top : 0; left : 0; right : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+	.ipad .OptionsList::before{ content: "880 ipad";}
+	.android .OptionsList::before{ content: "880 android";}
+
+} /* @media only screen and (max-width: 880px) */
+
+/* < 768 */
+@media only screen and (max-width: 768px){ /*48em*/
+
+	.OptionsList::before{ content: "768"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : blue; color : #fff; top : 0; left : 0; right : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+	.ipad .OptionsList::before{ content: "768 ipad";}
+	.android .OptionsList::before{ content: "768 android";}
+	.blackberry .OptionsList::before{ content: "768 blackberry";}
+
+	.ToolbarHeader .Hideable { display : none; }
+
+	.MatchLink { width : 50%; }
+	.OddsList { width : 50%; }
+		.Bet { padding : 0.6666em 0; }
+			.OutcomeName, .BM { display : none; }
+			.Bet .Odds, .BL { float : none; margin : 0 auto; text-align : center; }
+	.L-BookieNo, .L-BetType .Hideable { display : none; }
+	
+	.Ncolumns .OTBookies, .NO-Bookmakers { width : 56.2%; }
+	.OddsTableContainer { width : 43.8%; }
+		.OddsTableContainer .OTO { width : 33.3333%; }
+		.OddsTableContainer .OTCol4, .OddsTableContainer .OTCol5, .OddsTableContainer .OTCol6 { display : none; }
+
+} /* @media only screen and (max-width: 768px) */
+
+/* < 699 */
+@media only screen and (max-width: 699px){ /*43.6875em*/
+
+	.OptionsList::before{ content: "699"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : indigo; color : #fff; top : 0; left : 0; right : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+	.android .OptionsList::before{ content: "699 android";}
+
+} /* @media only screen and (max-width: 699px) */
+
+/* > 520 */
+@media only screen and (min-width: 521px){ /*32.5em*/
+	.PageTitle { float : left; width : 61.8%; }
+	.Score-Groups .PageTitle { float : none; width : auto; }
+	.ExtraContainer { float : right; width : 38.2%; }
+	.Score-Groups .ExtraContainer { display : none; }
+		.ExtraDetails { border : none; }
+}
+
+/* < 520 */
+@media only screen and (max-width: 520px){ /*32.5em*/
+	.OptionsList::before{ content: "520"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : yellow; color : #000; top : 0; left : 0; right : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+	.iphone .OptionsList::before{ content: "520 iphone";}
+	.android .OptionsList::before{ content: "520 android";}
+	.blackberry .OptionsList::before{ content: "520 blackberry";}
+
+	.S { padding : 0; }
+	.TitleTeamLink, .Score-Groups .TitleHome { padding : 0 0 0 0.5em; }
+
+	.FLLink { padding : 0 0.75em; font-size : 1em; line-height : 3.6666em; }
+
+	.MatchLink { float : none; width : auto; }
+	.OddsList { clear : both; float : none; width : auto; border-top : 1px solid #eee; border-right : 1px solid #eee; }
+	.MatchLink, .OddsList { *zoom : 1; } /* IE!!! */
+	.MatchLink:after, .OddsList:after { clear : both; display : block; visibility : hidden; overflow : hidden; height : 0 !important; line-height : 0; font-size : xx-large; content : " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x "; }
+		
+	.OddsList { display : none; }
+	.ScorePast, .TimeSection, .Score-Groups .TimeSection, .L-BetType { display : none; }
+	.LiveInfo, .Score-BinaryPair .LiveInfo { min-width : 5.5em; text-align : center; }
+		.ScoreMain { float : none; }
+	.Score-LargeBP .ScoreMain { padding : 1em 0.5em 0 0.6666em; font-size : 1em; letter-spacing : -1px; }
+	.SD-Date { padding : 0.5833em 0.5em 0 0.5em; font-size : 1em; font-weight : bold; }
+	.SD-Time { padding : 0.25em 0.5em 0.3333em 0.5em; }
+
+	.F-t { font-size : 1em; line-height : 3.5em; }
+	.F-Outcome { display : inline-block; }
+
+	/* odds table */
+	.OTO, .OddsTableContainer .OTO { display : none; }
+	.OTCol1 { display : block; width : 43.8%; }
+	.OddsTableContainer .OTCol1 { display : block; width : 100%; }
+	
+	.OTCNav .Hideable { display : none; }
+
+} /* @media only screen and (max-width: 520px) */
+
+/* < 480 */
+@media only screen and (max-width: 480px){
+	.Score-Groups .Participants { float : none; width : auto; padding : 0 0 0.75em 0; }
+	.Score-Groups .ScoreArea { position : static; top : auto; }
+}
+
+/* < 320 */
+@media only screen and (max-width: 320px){ /*26.6666em*/
+	.OptionsList::before{ content: "520"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : yellow; color : #000; top : 0; left : 0; right : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+
+	.LMLogo { display : none; }
+	.Serving { left : auto; right : 0; }
+	
+	/* odds table */
+	.OTBookies, .Ncolumns .OTBookies, .NO-Bookmakers { width : 61.8%; }
+	.OTCol1, .OddsTableContainer { width : 38.2%; }
+
+} /* @media only screen and (max-width: 320px) */
+
+/* < 299 */
+@media only screen and (max-width: 299px){ /*18.6875em*/
+	.OptionsList::before{ content: "299"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : violet; color : #fff; top : 0; left : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+	.android .OptionsList::before{ content: "299 android";}
+	.blackberry .OptionsList::before{ content: "299 blackberry";}
+	.j2me .OptionsList::before{ content: "299 j2me";}
+
+	.FLLink .Hideable { display : none; }
+
+} /* @media only screen and (max-width: 299px) */
+
+
+/* iPhone4 and other retina displays (portrait and landscape) */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+
+	.OptionsList::before{ content: "retina"; display : block; float : left; padding : 0 0.5em 0.0833em 0.5em; text-align : center; background : black; color : #fff; top : 0; left : 0; font-size : 1em; line-height : 3em; z-index : 99; opacity : .5; text-shadow : none; }
+
+	.replace-2x { font-size : 1px; }
+
+}
+
+.NoResolution::before, body.admin::before, .Portal .OptionsList::before { display : none; content : ''; }
+.OptionsList::before { display : none; }
+.IsAdmin::before { display : block; }
+
+/* REPETITIVE SPRITE DECLARATIONS */
+
+	/* PREMIUM BOOKMAKERS */
+
+		.PP-3000001 .BL	{	background-position :	0	0; }			/* Danske Spil */
+		.PP-3000003 .BL	{	background-position :	0	-16px; }		/* Scandic Bookmakers */
+		.PP-3000004 .BL	{	background-position :	0	-32px; }		/* Interwetten */
+		.PP-3000006 .BL	{	background-position :	0	-48px; }		/* BWin */
+		.PP-3000007 .BL	{	background-position :	0	-64px; }		/* Centrebet */
+		.PP-3000009 .BL	{	background-position :	0	-80px; }		/* Interlops */
+		.PP-3000012 .BL	{	background-position :	0	-96px; }		/* SportingBet */
+		.PP-3000015 .BL	{	background-position :	0	-112px; }		/* Unibet */
+		.PP-3000021 .BL	{	background-position :	0	-128px; }		/* William Hill */
+		.PP-3000022 .BL	{	background-position :	0	-144px; }		/* Admiral */
+		.PP-3000026 .BL	{	background-position :	0	-160px; }		/* IAS Bet */
+		.PP-3000028 .BL	{	background-position :	0	-176px; }		/* Expekt */
+		.PP-3000037 .BL	{	background-position :	0	-192px; }		/* BlueSQ */
+		.PP-3000042 .BL	{	background-position :	0	-208px; }		/* SNAI */
+		.PP-3000043 .BL	{	background-position :	0	-224px; }		/* SportFanatik */
+		.PP-3000044 .BL	{	background-position :	0	-240px; }		/* SportsInterAction */
+		.PP-3000047 .BL	{	background-position :	0	-256px; }		/* Oddset */
+		.PP-3000048 .BL	{	background-position :	0	-272px; }		/* Victor Chandler ??? */
+		.PP-3000049 .BL	{	background-position :	0	-288px; }		/* Fonbet */
+		.PP-3000058 .BL	{	background-position :	0	-304px; }		/* Canbet */
+		.PP-3000066 .BL	{	background-position :	0	-320px; }		/* StanJames */
+		.PP-3000068 .BL	{	background-position :	0	-336px; }		/* Ladbrokes */
+		.PP-3000070 .BL	{	background-position :	0	-352px; }		/* BetAtHome */
+		.PP-3000072 .BL	{	background-position :	0	-368px; }		/* SuperBook */
+		.PP-3000074 .BL	{	background-position :	0	-384px; }		/* BetInternet */
+		.PP-3000078 .BL	{	background-position :	0	-400px; }		/* Sportsbetting.com.au */
+		.PP-3000107 .BL	{	background-position :	0	-416px; }		/* Pinnacle */
+		.PP-3000111 .BL	{	background-position :	0	-432px; }		/* YaBet */
+		.PP-3000113 .BL	{	background-position :	0	-448px; }		/* PaddyPower */
+		.PP-3000141 .BL	{	background-position :	0	-464px; }		/* MyBet */
+
+		.PP-3000158 .BL	{	background-position :	-75px	0; }		/* 5Dimes */
+		.PP-3000174 .BL	{	background-position :	-75px	-16px; }	/* BoDog */
+		.PP-3000177 .BL	{	background-position :	-75px	-32px; }	/* BetFair */
+		.PP-3000181 .BL	{	background-position :	-75px	-48px; }	/* Bet365 */
+		.PP-3000188 .BL	{	background-position :	-75px	-64px; }	/* WorldSportsExchange */
+		.PP-3000189 .BL	{	background-position :	-75px	-80px; }	/* Atib */
+		.PP-3000200 .BL	{	background-position :	-75px	-96px; }	/* ToteSport */
+		.PP-3000206 .BL	{	background-position :	-75px	-112px; }	/* BetDaq */
+		.PP-3000211 .BL	{	background-position :	-75px	-128px; }	/* Bet24 */
+		.PP-3000241 .BL	{	background-position :	-75px	-144px; }	/* HKJC Football */
+		.PP-3000242 .BL	{	background-position :	-75px	-160px; }	/* Singapore Pools */
+		.PP-3000244 .BL	{	background-position :	-75px	-176px; }	/* Cris */
+		.PP-3000245 .BL	{	background-position :	-75px	-192px; }	/* Coral */
+		.PP-3000248 .BL	{	background-position :	-75px	-208px; }	/* Macau-Slot */
+		.PP-3000250 .BL	{	background-position :	-75px	-224px; }	/* 24h Poker */
+		.PP-3000255 .BL	{	background-position :	-75px	-240px; }	/* Betoto */
+		.PP-3000257 .BL	{	background-position :	-75px	-256px; }	/* Parier.net */
+		.PP-3000260 .BL	{	background-position :	-75px	-272px; }	/* NordicBet */
+		.PP-3000262 .BL	{	background-position :	-75px	-288px; }	/* YouWager */
+		.PP-3000267 .BL	{	background-position :	-75px	-304px; }	/* DiamondSportsbook */
+		.PP-3000271 .BL	{	background-position :	-75px	-320px; }	/* 10Bet */
+		.PP-3000274 .BL	{	background-position :	-75px	-336px; }	/* Wager Web */
+		.PP-3000277 .BL	{	background-position :	-75px	-352px; }	/* GameBookers */
+		.PP-3000278 .BL	{	background-position :	-75px	-368px; }	/* SBG Global */
+		.PP-3000279 .BL	{	background-position :	-75px	-384px; }	/* Matchbook */
+		.PP-3000287 .BL	{	background-position :	-75px	-400px; }	/* BoyleSports */
+		.PP-3000293 .BL	{	background-position :	-75px	-416px; }	/* JackpotCity ??? */
+		.PP-3000294 .BL	{	background-position :	-75px	-432px; }	/* BetFred */
+		.PP-3000295 .BL	{	background-position :	-75px	-448px; }	/* RateBook */
+		.PP-3000296 .BL	{	background-position :	-75px	-464px; }	/* Bookmaker.com */
+
+		.PP-3000298 .BL	{	background-position :	-150px	0; }		/* Sports.com */
+		.PP-3000306 .BL	{	background-position :	-150px	-16px; }	/* BetUS */
+		.PP-3000310 .BL	{	background-position :	-150px	-32px; }	/* SportingBet.au */
+		.PP-3000311 .BL	{	background-position :	-150px	-48px; }	/* Sportsbook.com */
+		.PP-3000313 .BL	{	background-position :	-150px	-64px; }	/* Totosi */
+		.PP-3000314 .BL	{	background-position :	-150px	-80px; }	/* BetSafe */
+		.PP-3000315 .BL	{	background-position :	-150px	-96px; }	/* LinesMaker */
+		.PP-3000319 .BL	{	background-position :	-150px	-112px; }	/* Betsson */
+		.PP-3000320 .BL	{	background-position :	-375px	-448px; }	/* Vierklee */
+		.PP-3000326 .BL	{	background-position :	-150px	-144px; }	/* BetWay */
+		.PP-3000336 .BL	{	background-position :	-150px	-160px; }	/* BetClic */
+		.PP-3000342 .BL	{	background-position :	-150px	-176px; }	/* BetGun */
+		.PP-3000343 .BL	{	background-position :	-150px	-192px; }	/* 188Bet */
+		.PP-3000347 .BL	{	background-position :	-150px	-208px; }	/* SportsBet */
+		.PP-3000349 .BL	{	background-position :	-150px	-224px; }	/* YouWin */
+		.PP-3000352 .BL	{	background-position :	-150px	-240px; }	/* SportBet */
+		.PP-3000354 .BL	{	background-position :	-150px	-256px; }	/* Skiller */
+		.PP-3000361 .BL	{	background-position :	-150px	-272px; }	/* BetMaker */
+		.PP-3000367 .BL	{	background-position :	-150px	-288px; }	/* Chance */
+		.PP-3000368 .BL	{	background-position :	-150px	-304px; }	/* SBOBet */
+		.PP-3000376 .BL	{	background-position :	-150px	-320px; }	/* JustBet */
+		.PP-3000377 .BL	{	background-position :	-150px	-336px; }	/* PariMatch */
+		.PP-3000379 .BL	{	background-position :	-150px	-352px; }	/* Mansion88 */
+		.PP-3000380 .BL	{	background-position :	-150px	-368px; }	/* BetBoo */
+		.PP-3000382 .BL	{	background-position :	-150px	-384px; }	/* PartyBets */
+		.PP-3000387 .BL	{	background-position :	-150px	-400px; }	/* PianetaSommesse */
+		.PP-3000388 .BL	{	background-position :	-150px	-416px; }	/* TabSportsBet */
+		.PP-3000389 .BL	{	background-position :	-150px	-432px; }	/* GWBet */
+		.PP-3000390 .BL	{	background-position :	-150px	-448px; }	/* Yishengbo */
+		.PP-3000392 .BL	{	background-position :	-150px	-464px; }	/* Casino di Venezia */
+
+		.PP-3000395 .BL	{	background-position :	-225px	0; }		/* BetQS */
+		.PP-3000396 .BL	{	background-position :	-225px	-16px; }	/* WBX */
+		.PP-3000397 .BL	{	background-position :	-225px	-32px; }	/* Cashpoint */
+		.PP-3000402 .BL	{	background-position :	-225px	-48px; }	/* BWin.it */
+		.PP-3000406 .BL	{	background-position :	-225px	-64px; }	/* DaxxBet */
+		.PP-3000408 .BL	{	background-position :	-225px	-80px; }	/* Bet3000 */
+		.PP-3000411 .BL	{	background-position :	-225px	-96px; }	/* BetChronicle */
+		.PP-3000414 .BL	{	background-position :	-225px	-112px; }	/* TrioBet */
+		.PP-3000419 .BL	{	background-position :	-225px	-128px; }	/* Jetbull */
+		.PP-3000424 .BL	{	background-position :	-225px	-144px; }	/* 888Sport */
+		.PP-3000428 .BL	{	background-position :	-225px	-160px; }	/* Game.net */
+		.PP-3000429 .BL	{	background-position :	-225px	-176px; }	/* Better */
+		.PP-3000434 .BL	{	background-position :	-225px	-192px; }	/* Fubo.com */
+		.PP-3000442 .BL	{	background-position :	-225px	-208px; }	/* Noxwin.com */
+		.PP-3000456 .BL	{	background-position :	-225px	-224px; }	/* EFBet */
+		.PP-3000460 .BL	{	background-position :	-225px	-240px; }	/* GiocoDigitale */
+		.PP-3000466 .BL	{	background-position :	-225px	-256px; }	/* FlemingtonSportsbet */
+		.PP-3000467 .BL	{	background-position :	-225px	-272px; }	/* Leon */
+		.PP-3000468 .BL	{	background-position :	-225px	-288px; }	/* TopSport */
+		.PP-3000471 .BL	{	background-position :	-225px	-304px; }	/* 12Bet */
+		.PP-3000474 .BL	{	background-position :	-225px	-320px; }	/* Tipico */
+		.PP-3000482 .BL	{	background-position :	-225px	-336px; }	/* Superbet.it */
+		.PP-3000485 .BL	{	background-position :	-225px	-352px; }	/* BetaLand */
+		.PP-3000487 .BL	{	background-position :	-225px	-368px; }	/* EgoBet - formerly EveBet */
+		.PP-3000492 .BL	{	background-position :	-225px	-384px; }	/* Merkur-Win */
+		.PP-3000493 .BL	{	background-position :	-225px	-400px; }	/* BetFair.it */
+		.PP-3000496 .BL	{	background-position :	-225px	-416px; }	/* BetPhoenix */
+		.PP-3000499 .BL	{	background-position :	-225px	-432px; }	/* 1bet2bet */
+		.PP-3000502 .BL	{	background-position :	-225px	-448px; }	/* Sports-1 */
+		.PP-3000503 .BL	{	background-position :	-225px	-464px; }	/* BetCruise */
+
+		.PP-3000504 .BL	{	background-position :	-300px	0; }		/* Fun88.com */
+		.PP-3000813 .BL	{	background-position :	-300px	-16px; }	/* FantasticWin */
+		.PP-3000508 .BL	{	background-position :	-300px	-32px; }	/* BetOnline */
+		.PP-3000513 .BL	{	background-position :	-300px	-48px; }	/* LiveBet */
+		.PP-3000517 .BL	{	background-position :	-300px	-64px; }	/* Legends */
+		.PP-3000518 .BL	{	background-position :	-300px	-80px; }	/* Bodog */
+		.PP-3000522 .BL	{	background-position :	-300px	-96px; }	/* Bet7Days */
+		.PP-3000527 .BL	{	background-position :	-300px	-112px; }	/* RedBet */
+		.PP-3000528 .BL	{	background-position :	-300px	-128px; }	/* 8dice */
+		.PP-3000532 .BL	{	background-position :	-300px	-144px; }	/* Gamblers Palace */
+		.PP-3000545 .BL	{	background-position :	-300px	-160px; }	/* TitanBet */
+		.PP-3000552 .BL	{	background-position :	-300px	-176px; }	/* Bet770 */
+		.PP-3000554 .BL	{	background-position :	-300px	-192px; }	/* GoalWin */
+		.PP-3000699 .BL	{	background-position :	-300px	-208px; }	/* EuroSportBet ??? */
+		.PP-3000701 .BL	{	background-position :	-300px	-224px; }	/* BWin.fr */
+		.PP-3000702 .BL	{	background-position :	-300px	-240px; }	/* Sajoo.fr */
+		.PP-3000704 .BL	{	background-position :	-300px	-256px; }	/* BetClic.fr */
+		.PP-3000705 .BL	{	background-position :	-300px	-272px; }	/* Paf.com */
+		.PP-3000710 .BL	{	background-position :	-300px	-288px; }	/* BetClic.it */
+		.PP-3000712 .BL	{	background-position :	-300px	-304px; }	/* HitItBet */
+		.PP-3000713 .BL	{	background-position :	-300px	-320px; }	/* BetNGo */
+		.PP-3000714 .BL	{	background-position :	-300px	-336px; }	/* AllYouBet */
+		.PP-3000715 .BL	{	background-position :	-300px	-352px; }	/* 32Red */
+		.PP-3000716 .BL	{	background-position :	-300px	-368px; }	/* ParionsWeb */
+		.PP-3000719 .BL	{	background-position :	-300px	-384px; }	/* PMU */
+		.PP-3000721 .BL	{	background-position :	-300px	-400px; }	/* TattsBet */
+		.PP-3000724 .BL	{	background-position :	-300px	-416px; }	/* Guts */
+		.PP-3000726 .BL	{	background-position :	-300px	-432px; }	/* Panbet */
+		.PP-3000727 .BL	{	background-position :	-300px	-448px; }	/* Sisal */
+		.PP-3000730 .BL	{	background-position :	-300px	-464px; }	/* FrancePari.fr */
+
+		.PP-3000731 .BL	{	background-position :	-375px	0; }		/* 1Bet */
+		.PP-3000732 .BL	{	background-position :	-375px	-16px; }	/* GetWin */
+		.PP-3000735 .BL	{	background-position :	-375px	-32px; }	/* Dafabet */
+		.PP-3000736 .BL, .PP-3000422 .BL	{	background-position :	-375px	-48px; }	/* OddsMatrix */
+		.PP-3000739 .BL	{	background-position :	-375px	-64px; }	/* Edbet */
+		.PP-3000744 .BL	{	background-position :	-375px	-80px; }	/* DomGame */
+		.PP-3000747 .BL	{	background-position :	-375px	-96px; }	/* ComeOn */
+		.PP-3000751 .BL	{	background-position :	-375px	-112px; }	/* PartyBets */
+		.PP-3000756 .BL	{	background-position :	-375px	-128px; }	/* MeridianBet */
+		.PP-3000757 .BL	{	background-position :	-375px	-144px; }	/* BetRedKings */
+		.PP-3000758 .BL	{	background-position :	-375px	-160px; }	/* SMarkets */
+		.PP-3000764 .BL	{	background-position :	-375px	-176px; }	/* WinFootball */
+		.PP-3000469 .BL	{	background-position :	-375px	-192px; }	/* Marathon */
+		.PP-3000777 .BL	{	background-position :	-375px	-208px; }	/* TeamBet */
+		.PP-3000316 .BL	{	background-position :	-375px	-224px; }	/* Samvo */
+		.PP-3000780 .BL	{	background-position :	-375px	-240px; }	/* Betsafe DK */
+		.PP-3000784 .BL	{	background-position :	-375px	-256px; }	/* Voltbet */
+		.PP-3000768 .BL	{	background-position :	-375px	-272px; }	/* Dobet */
+		.PP-3000776 .BL	{	background-position :	-375px	-288px; }	/* BetSonic */
+		.PP-3000555 .BL	{	background-position :	-375px	-320px; }	/* BetRadar */
+		.PP-3000008 .BL	{	background-position :	-375px	-336px; }	/* Samvo BetBroker */
+		.PP-3000342 .BL	{	background-position :	-375px	-352px; }	/* BetGun */
+		.PP-3000740 .BL	{	background-position :	-375px	-368px; }	/* VBet */
+		.PP-3000717 .BL	{	background-position :	-375px	-384px; }	/* Paris365 */
+		.PP-3000779 .BL	{	background-position :	-375px	-400px; }	/* Betsson.dk */
+		.PP-3000765 .BL	{	background-position :	-375px	-416px; }	/* OffsideBet */
+		.PP-3000787 .BL	{	background-position :	-375px	-432px; }	/* MooreGames */
+		.PP-3000790 .BL	{	background-position :	-375px	-464px; }	/* TonyBet */
+
+		.PP-3000793 .BL	{	background-position :	-450px	0; }		/* Europe-Bet */
+		.PP-3000506 .BL	{	background-position :	-450px	-16px; }	/* LuxBet */
+		.PP-3000778 .BL	{	background-position :	-450px	-32px; }	/* FavBet */
+		.PP-3000788 .BL	{	background-position :	-450px	-48px; }	/* Interwetten.it */
+		.PP-3000786 .BL	{	background-position :	-450px	-64px; }	/* Iziplay.it */
+		.PP-3000039 .BL	{	background-position :	-450px	-80px; }	/* Svenska Spel */
+		.PP-3000699 .BL	{	background-position :	-450px	-96px; }	/* Unibet.fr */
+		.PP-3000048 .BL	{	background-position :	-450px	-112px; }	/* BetVictor */
+		.PP-3000293 .BL	{	background-position :	-450px	-128px; }	/* Hollywood */
+		.PP-3000433 .BL	{	background-position :	-450px	-144px; }	/* DigiBet */
+		.PP-3000038 .BL	{	background-position :	-450px	-160px; }	/* Norsk Tipping */
+		.PP-3000409 .BL	{	background-position :	-450px	-176px; }	/* FiveBet.it */
+		.PP-3000483 .BL	{	background-position :	-450px	-192px; }	/* BetPro.it */
+		.PP-3000774 .BL {	background-position :	-450px	-208px; }	/* MermaidBet */
+		.PP-3000404 .BL {	background-position :	-450px	-224px; }	/* Intralot.it */
+		.PP-3000797 .BL {	background-position :	-450px	-240px; }	/* BetFlag.it */
+		.PP-3000804 .BL {	background-position :	-450px	-256px; }	/* Island Casino */
+		.PP-3000803 .BL {	background-position :	-450px	-272px; }	/* OdeonBet */
+		.PP-3000800 .BL {	background-position :	-450px	-288px; }	/* Instant Actions Sports */
+		.PP-3000801 .BL {	background-position :	-450px	-304px; }	/* CircleBet */
+		.PP-3000799 .BL {	background-position :	-450px	-320px; }	/* BetIn */
+		.PP-3000783 .BL {	background-position :	-450px	-336px; }	/* WilliamHill.it */
+		.PP-3000814 .BL {	background-position :	-450px	-352px; }	/* DomusBet.it */
+		.PP-3000360 .BL {	background-position :	-450px	-368px; }	/* CBM */
+		.PP-3000775 .BL {	background-position :	-450px	-384px; }	/* Yaybet */
+		.PP-3000816 .BL {	background-position :	-450px	-400px; }	/* BetRockIt */
+		.PP-3000817 .BL {	background-position :	-450px	-416px; }	/* HeavenBet */
+		.PP-3000818 .BL {	background-position :	-450px	-432px; }	/* GoldenPark */
+		.PP-3000820 .BL {	background-position :	-450px	-448px; }	/* Cirsa */
+		.PP-3000547 .BL {	background-position :	-450px	-464px; }	/* TempoBet */
+
+		.PP-3000821 .BL	{	background-position :	-525px	0; }		/* Betcityru */
+		.PP-3000345 .BL	{	background-position :	-525px	-16px; }	/* Tipsport.cz */
+		.PP-3000062 .BL	{	background-position :	-525px	-32px; }	/* Skybet */
+		.PP-3000823 .BL	{	background-position :	-525px	-48px; }	/* Bovada.lv */
+		.PP-3000824 .BL	{	background-position :	-525px	-64px; }	/* 18bet */
+		.PP-3000789 .BL	{	background-position :	-525px	-80px; }	/* Unibet.it */
+		.PP-3000767 .BL	{	background-position :	-525px	-96px; }	/* Wettpunkt */
+		.PP-3000490 .BL {	background-position :	-525px	-112px; }	/* Racebets */
+		.PP-3000034 .BL {	background-position :	-525px	-128px; }	/* Veikkaus */
+		.PP-3000822 .BL {	background-position :	-525px	-144px; }	/* Liga Stavok */
+		.PP-3000830 .BL	{	background-position :	-525px	-160px; }	/* PaddyPower.it */
+		.PP-3000828 .BL	{	background-position :	-525px	-176px; }	/* Giochiamo.it */
+
+	/* NON PREMIUM BOOKMAKERS */
+
+		.NP-3000001 .BL	{	background-position :	0	-480px; }		/* Danske Spil */
+		.NP-3000003 .BL	{	background-position :	0	-496px; }		/* Scandic Bookmakers */
+		.NP-3000004 .BL	{	background-position :	0	-512px; }		/* Interwetten */
+		.NP-3000006 .BL	{	background-position :	0	-528px; }		/* BWin */
+		.NP-3000007 .BL	{	background-position :	0	-544px; }		/* Centrebet */
+		.NP-3000009 .BL	{	background-position :	0	-560px; }		/* Interlops */
+		.NP-3000012 .BL	{	background-position :	0	-576px; }		/* SportingBet */
+		.NP-3000015 .BL	{	background-position :	0	-592px; }		/* Unibet */
+		.NP-3000021 .BL	{	background-position :	0	-608px; }		/* William Hill */
+		.NP-3000022 .BL	{	background-position :	0	-624px; }		/* Admiral */
+		.NP-3000026 .BL	{	background-position :	0	-640px; }		/* IAS Bet */
+		.NP-3000028 .BL	{	background-position :	0	-656px; }		/* Expekt */
+		.NP-3000037 .BL	{	background-position :	0	-672px; }		/* BlueSQ */
+		.NP-3000042 .BL	{	background-position :	0	-688px; }		/* SNAI */
+		.NP-3000043 .BL	{	background-position :	0	-704px; }		/* SportFanatik */
+		.NP-3000044 .BL	{	background-position :	0	-720px; }		/* SportsInterAction */
+		.NP-3000047 .BL	{	background-position :	0	-736px; }		/* Oddset */
+		.NP-3000048 .BL	{	background-position :	0	-752px; }		/* Victor Chandler ??? */
+		.NP-3000049 .BL	{	background-position :	0	-768px; }		/* Fonbet */
+		.NP-3000058 .BL	{	background-position :	0	-784px; }		/* Canbet */
+		.NP-3000066 .BL	{	background-position :	0	-800px; }		/* StanJames */
+		.NP-3000068 .BL	{	background-position :	0	-816px; }		/* Ladbrokes */
+		.NP-3000070 .BL	{	background-position :	0	-832px; }		/* BetAtHome */
+		.NP-3000072 .BL	{	background-position :	0	-848px; }		/* SuperBook */
+		.NP-3000074 .BL	{	background-position :	0	-864px; }		/* BetInternet */
+		.NP-3000078 .BL	{	background-position :	0	-880px; }		/* Sportsbetting.com.au */
+		.NP-3000107 .BL	{	background-position :	0	-896px; }		/* Pinnacle */
+		.NP-3000111 .BL	{	background-position :	0	-912px; }		/* YaBet */
+		.NP-3000113 .BL	{	background-position :	0	-928px; }		/* PaddyPower */
+		.NP-3000141 .BL	{	background-position :	0	-944px; }		/* MyBet */
+
+		.NP-3000158 .BL	{	background-position :	-75px	-480px; }	/* 5Dimes */
+		.NP-3000174 .BL	{	background-position :	-75px	-496px; }	/* BoDog */
+		.NP-3000177 .BL	{	background-position :	-75px	-512px; }	/* BetFair */
+		.NP-3000181 .BL	{	background-position :	-75px	-528px; }	/* Bet365 */
+		.NP-3000188 .BL	{	background-position :	-75px	-544px; }	/* WorldSportsExchange */
+		.NP-3000189 .BL	{	background-position :	-75px	-560px; }	/* Atib */
+		.NP-3000200 .BL	{	background-position :	-75px	-576px; }	/* ToteSport */
+		.NP-3000206 .BL	{	background-position :	-75px	-592px; }	/* BetDaq */
+		.NP-3000211 .BL	{	background-position :	-75px	-608px; }	/* Bet24 */
+		.NP-3000241 .BL	{	background-position :	-75px	-624px; }	/* HKJC Football */
+		.NP-3000242 .BL	{	background-position :	-75px	-640px; }	/* Singapore Pools */
+		.NP-3000244 .BL	{	background-position :	-75px	-656px; }	/* Cris */
+		.NP-3000245 .BL	{	background-position :	-75px	-672px; }	/* Coral */
+		.NP-3000248 .BL	{	background-position :	-75px	-688px; }	/* Macau-Slot */
+		.NP-3000250 .BL	{	background-position :	-75px	-704px; }	/* 24h Poker */
+		.NP-3000255 .BL	{	background-position :	-75px	-720px; }	/* Betoto */
+		.NP-3000257 .BL	{	background-position :	-75px	-736px; }	/* Parier.net */
+		.NP-3000260 .BL	{	background-position :	-75px	-752px; }	/* NordicBet */
+		.NP-3000262 .BL	{	background-position :	-75px	-768px; }	/* YouWager */
+		.NP-3000267 .BL	{	background-position :	-75px	-784px; }	/* DiamondSportsbook */
+		.NP-3000271 .BL	{	background-position :	-75px	-800px; }	/* 10Bet */
+		.NP-3000274 .BL	{	background-position :	-75px	-816px; }	/* Wager Web */
+		.NP-3000277 .BL	{	background-position :	-75px	-832px; }	/* GameBookers */
+		.NP-3000278 .BL	{	background-position :	-75px	-848px; }	/* SBG Global */
+		.NP-3000279 .BL	{	background-position :	-75px	-864px; }	/* Matchbook */
+		.NP-3000287 .BL	{	background-position :	-75px	-880px; }	/* BoyleSports */
+		.NP-3000293 .BL	{	background-position :	-75px	-896px; }	/* JackpotCity ??? */
+		.NP-3000294 .BL	{	background-position :	-75px	-912px; }	/* BetFred */
+		.NP-3000295 .BL	{	background-position :	-75px	-928px; }	/* RateBook */
+		.NP-3000296 .BL	{	background-position :	-75px	-944px; }	/* Bookmaker.com */
+
+		.NP-3000298 .BL	{	background-position :	-150px	-480px; }	/* Sports.com */
+		.NP-3000306 .BL	{	background-position :	-150px	-496px; }	/* BetUS */
+		.NP-3000310 .BL	{	background-position :	-150px	-512px; }	/* SportingBet.au */
+		.NP-3000311 .BL	{	background-position :	-150px	-528px; }	/* Sportsbook.com */
+		.NP-3000313 .BL	{	background-position :	-150px	-544px; }	/* Totosi */
+		.NP-3000314 .BL	{	background-position :	-150px	-560px; }	/* BetSafe */
+		.NP-3000315 .BL	{	background-position :	-150px	-576px; }	/* LinesMaker */
+		.NP-3000319 .BL	{	background-position :	-150px	-592px; }	/* Betsson */
+		.NP-3000320 .BL	{	background-position :	-375px	-928px; }	/* Vierklee */
+		.NP-3000326 .BL	{	background-position :	-150px	-624px; }	/* BetWay */
+		.NP-3000336 .BL	{	background-position :	-150px	-640px; }	/* BetClic */
+		.NP-3000342 .BL	{	background-position :	-150px	-656px; }	/* BetGun */
+		.NP-3000343 .BL	{	background-position :	-150px	-672px; }	/* 188Bet */
+		.NP-3000347 .BL	{	background-position :	-150px	-688px; }	/* SportsBet */
+		.NP-3000349 .BL	{	background-position :	-150px	-704px; }	/* YouWin */
+		.NP-3000352 .BL	{	background-position :	-150px	-720px; }	/* SportBet */
+		.NP-3000354 .BL	{	background-position :	-150px	-736px; }	/* Skiller */
+		.NP-3000361 .BL	{	background-position :	-150px	-752px; }	/* BetMaker */
+		.NP-3000367 .BL	{	background-position :	-150px	-768px; }	/* Chance */
+		.NP-3000368 .BL	{	background-position :	-150px	-784px; }	/* SBOBet */
+		.NP-3000376 .BL	{	background-position :	-150px	-800px; }	/* JustBet */
+		.NP-3000377 .BL	{	background-position :	-150px	-816px; }	/* PariMatch */
+		.NP-3000379 .BL	{	background-position :	-150px	-832px; }	/* Mansion88 */
+		.NP-3000380 .BL	{	background-position :	-150px	-848px; }	/* BetBoo */
+		.NP-3000382 .BL	{	background-position :	-150px	-864px; }	/* PartyBets */
+		.NP-3000387 .BL	{	background-position :	-150px	-880px; }	/* PianetaSommesse */
+		.NP-3000388 .BL	{	background-position :	-150px	-896px; }	/* TabSportsBet */
+		.NP-3000389 .BL	{	background-position :	-150px	-912px; }	/* GWBet */
+		.NP-3000390 .BL	{	background-position :	-150px	-928px; }	/* Yishengbo */
+		.NP-3000392 .BL	{	background-position :	-150px	-944px; }	/* Casino di Venezia */
+
+		.NP-3000395 .BL	{	background-position :	-225px	-480px; }	/* BetQS */
+		.NP-3000396 .BL	{	background-position :	-225px	-496px; }	/* WBX */
+		.NP-3000397 .BL	{	background-position :	-225px	-512px; }	/* Cashpoint */
+		.NP-3000402 .BL	{	background-position :	-225px	-528px; }	/* BWin.it */
+		.NP-3000406 .BL	{	background-position :	-225px	-544px; }	/* DaxxBet */
+		.NP-3000408 .BL	{	background-position :	-225px	-560px; }	/* Bet3000 */
+		.NP-3000411 .BL	{	background-position :	-225px	-576px; }	/* BetChronicle */
+		.NP-3000414 .BL	{	background-position :	-225px	-592px; }	/* TrioBet */
+		.NP-3000419 .BL	{	background-position :	-225px	-608px; }	/* Jetbull */
+		.NP-3000424 .BL	{	background-position :	-225px	-624px; }	/* 888Sport */
+		.NP-3000428 .BL	{	background-position :	-225px	-640px; }	/* Game.net */
+		.NP-3000429 .BL	{	background-position :	-225px	-656px; }	/* Better */
+		.NP-3000434 .BL	{	background-position :	-225px	-672px; }	/* Fubo.com */
+		.NP-3000442 .BL	{	background-position :	-225px	-688px; }	/* Noxwin.com */
+		.NP-3000456 .BL	{	background-position :	-225px	-704px; }	/* EFBet */
+		.NP-3000460 .BL	{	background-position :	-225px	-720px; }	/* GiocoDigitale */
+		.NP-3000466 .BL	{	background-position :	-225px	-736px; }	/* FlemingtonSportsbet */
+		.NP-3000467 .BL	{	background-position :	-225px	-752px; }	/* Leon */
+		.NP-3000468 .BL	{	background-position :	-225px	-768px; }	/* TopSport */
+		.NP-3000471 .BL	{	background-position :	-225px	-784px; }	/* 12Bet */
+		.NP-3000474 .BL	{	background-position :	-225px	-800px; }	/* Tipico */
+		.NP-3000482 .BL	{	background-position :	-225px	-816px; }	/* Superbet.it */
+		.NP-3000485 .BL	{	background-position :	-225px	-832px; }	/* BetaLand */
+		.NP-3000487 .BL	{	background-position :	-225px	-848px; }	/* EgoBet - formerly EveBet */
+		.NP-3000492 .BL	{	background-position :	-225px	-864px; }	/* Merkur-Win */
+		.NP-3000493 .BL	{	background-position :	-225px	-880px; }	/* BetFair.it */
+		.NP-3000496 .BL	{	background-position :	-225px	-896px; }	/* BetPhoenix */
+		.NP-3000499 .BL	{	background-position :	-225px	-912px; }	/* 1bet2bet */
+		.NP-3000502 .BL	{	background-position :	-225px	-928px; }	/* Sports-1 */
+		.NP-3000503 .BL	{	background-position :	-225px	-944px; }	/* BetCruise */
+
+		.NP-3000504 .BL	{	background-position :	-300px	-480px; }	/* Fun88.com */
+		.NP-3000813 .BL	{	background-position :	-300px	-496px; }	/* FantasticWin */
+		.NP-3000508 .BL	{	background-position :	-300px	-512px; }	/* BetOnline */
+		.NP-3000513 .BL	{	background-position :	-300px	-528px; }	/* LiveBet */
+		.NP-3000517 .BL	{	background-position :	-300px	-544px; }	/* Legends */
+		.NP-3000518 .BL	{	background-position :	-300px	-560px; }	/* Bodog */
+		.NP-3000522 .BL	{	background-position :	-300px	-576px; }	/* Bet7Days */
+		.NP-3000527 .BL	{	background-position :	-300px	-592px; }	/* RedBet */
+		.NP-3000528 .BL	{	background-position :	-300px	-608px; }	/* 8dice */
+		.NP-3000532 .BL	{	background-position :	-300px	-624px; }	/* Gamblers Palace */
+		.NP-3000545 .BL	{	background-position :	-300px	-640px; }	/* TitanBet */
+		.NP-3000552 .BL	{	background-position :	-300px	-656px; }	/* Bet770 */
+		.NP-3000554 .BL	{	background-position :	-300px	-672px; }	/* GoalWin */
+		.NP-3000699 .BL	{	background-position :	-300px	-688px; }	/* EuroSportBet ??? */
+		.NP-3000701 .BL	{	background-position :	-300px	-704px; }	/* BWin.fr */
+		.NP-3000702 .BL	{	background-position :	-300px	-720px; }	/* Sajoo.fr */
+		.NP-3000704 .BL	{	background-position :	-300px	-736px; }	/* BetClic.fr */
+		.NP-3000705 .BL	{	background-position :	-300px	-752px; }	/* Paf.com */
+		.NP-3000710 .BL	{	background-position :	-300px	-768px; }	/* BetClic.it */
+		.NP-3000712 .BL	{	background-position :	-300px	-784px; }	/* HitItBet */
+		.NP-3000713 .BL	{	background-position :	-300px	-800px; }	/* BetNGo */
+		.NP-3000714 .BL	{	background-position :	-300px	-816px; }	/* AllYouBet */
+		.NP-3000715 .BL	{	background-position :	-300px	-832px; }	/* 32Red */
+		.NP-3000716 .BL	{	background-position :	-300px	-848px; }	/* ParionsWeb */
+		.NP-3000719 .BL	{	background-position :	-300px	-864px; }	/* PMU */
+		.NP-3000721 .BL	{	background-position :	-300px	-880px; }	/* TattsBet */
+		.NP-3000724 .BL	{	background-position :	-300px	-896px; }	/* Guts */
+		.NP-3000726 .BL	{	background-position :	-300px	-912px; }	/* Panbet */
+		.NP-3000727 .BL	{	background-position :	-300px	-928px; }	/* Sisal */
+		.NP-3000730 .BL	{	background-position :	-300px	-944px; }	/* FrancePari.fr */
+
+		.NP-3000731 .BL	{	background-position :	-375px	-480px; }	/* 1Bet */
+		.NP-3000732 .BL	{	background-position :	-375px	-496px; }	/* GetWin */
+		.NP-3000735 .BL	{	background-position :	-375px	-512px; }	/* Dafabet */
+		.NP-3000736 .BL	{	background-position :	-375px	-528px; }	/* OddsMatrix */
+		.NP-3000739 .BL	{	background-position :	-375px	-544px; }	/* Edbet */
+		.NP-3000744 .BL	{	background-position :	-375px	-560px; }	/* DomGame */
+		.NP-3000747 .BL	{	background-position :	-375px	-576px; }	/* ComeOn */
+		.NP-3000751 .BL	{	background-position :	-375px	-592px; }	/* PartyBets */
+		.NP-3000756 .BL	{	background-position :	-375px	-608px; }	/* MeridianBet */
+		.NP-3000757 .BL	{	background-position :	-375px	-624px; }	/* BetRedKings */
+		.NP-3000758 .BL	{	background-position :	-375px	-640px; }	/* SMarkets */
+		.NP-3000764 .BL	{	background-position :	-375px	-656px; }	/* WinFootball */
+		.NP-3000469 .BL	{	background-position :	-375px	-672px; }	/* Marathon */
+		.NP-3000777 .BL	{	background-position :	-375px	-688px; }	/* TeamBet */
+		.NP-3000316 .BL	{	background-position :	-375px	-704px; }	/* Samvo */
+		.NP-3000780 .BL	{	background-position :	-375px	-720px; }	/* Betsafe DK */
+		.NP-3000784 .BL	{	background-position :	-375px	-736px; }	/* Voltbet */
+		.NP-3000768 .BL	{	background-position :	-375px	-752px; }	/* Dobet */
+		.NP-3000776 .BL	{	background-position :	-375px	-768px; }	/* BetSonic */
+		.NP-3000555 .BL	{	background-position :	-375px	-800px; }	/* BetRadar */
+		.NP-3000008 .BL	{	background-position :	-375px	-816px; }	/* Samvo BetBroker */
+		.NP-3000342 .BL	{	background-position :	-375px	-832px; }	/* BetGun */
+		.NP-3000740 .BL	{	background-position :	-375px	-848px; }	/* VBet */
+		.NP-3000779 .BL	{	background-position :	-375px	-864px; }	/* Betsson.dk */
+		.NP-3000765 .BL	{	background-position :	-375px	-880px; }	/* OffsideBet */
+		.NP-3000787 .BL	{	background-position :	-375px	-896px; }	/* MooreGames */
+		.NP-3000790 .BL	{	background-position :	-375px	-944px; }	/* TonyBet */
+
+		.NP-3000793 .BL	{	background-position :	-450px	-480px; }	/* Europe-Bet */
+		.NP-3000506 .BL	{	background-position :	-450px	-496px; }	/* LuxBet */
+		.NP-3000778 .BL	{	background-position :	-450px	-512px; }	/* FavBet */
+		.NP-3000788 .BL	{	background-position :	-450px	-528px; }	/* Interwetten.it */
+		.NP-3000786 .BL	{	background-position :	-450px	-544px; }	/* Iziplay.it */
+		.NP-3000039 .BL	{	background-position :	-450px	-560px; }	/* Svenska Spel */
+		.NP-3000699 .BL	{	background-position :	-450px	-576px; }	/* Unibet.fr */
+		.NP-3000048 .BL	{	background-position :	-450px	-592px; }	/* BetVictor */
+		.NP-3000293 .BL	{	background-position :	-450px	-608px; }	/* Hollywood */
+		.NP-3000433 .BL	{	background-position :	-450px	-624px; }	/* DigiBet */
+		.NP-3000038 .BL	{	background-position :	-450px	-640px; }	/* Norsk Tipping */
+		.NP-3000409 .BL	{	background-position :	-450px	-656px; }	/* FiveBet.it */
+		.NP-3000483 .BL	{	background-position :	-450px	-672px; }	/* BetPro.it */
+		.NP-3000774 .BL {	background-position :	-450px	-688px; }	/* MermaidBet */
+		.NP-3000404 .BL {	background-position :	-450px	-704px; }	/* Intralot.it */
+		.NP-3000797 .BL {	background-position :	-450px	-720px; }	/* BetFlag.it */
+		.NP-3000804 .BL {	background-position :	-450px	-736px; }	/* Island Casino */
+		.NP-3000803 .BL {	background-position :	-450px	-752px; }	/* OdeonBet */
+		.NP-3000800 .BL {	background-position :	-450px	-768px; }	/* Instant Actions Sports */
+		.NP-3000801 .BL {	background-position :	-450px	-784px; }	/* CircleBet */
+		.NP-3000799 .BL {	background-position :	-450px	-800px; }	/* BetIn */
+		.NP-3000783 .BL {	background-position :	-450px	-816px; }	/* WilliamHill.it */
+		.NP-3000814 .BL {	background-position :	-450px	-832px; }	/* DomusBet.it */
+		.NP-3000360 .BL {	background-position :	-450px	-848px; }	/* CBM */
+		.NP-3000775 .BL {	background-position :	-450px	-864px; }	/* Yaybet */
+		.NP-3000816 .BL {	background-position :	-450px	-880px; }	/* BetRockIt */
+		.NP-3000817 .BL {	background-position :	-450px	-896px; }	/* HeavenBet */
+		.NP-3000818 .BL {	background-position :	-450px	-912px; }	/* GoldenPark */
+		.NP-3000820 .BL {	background-position :	-450px	-928px; }	/* Cirsa */
+		.NP-3000547 .BL {	background-position :	-450px	-944px; }	/* TempoBet */
+
+		.NP-3000821 .BL	{	background-position :	-525px	-480px; }	/* Betcityru */
+		.NP-3000345 .BL	{	background-position :	-525px	-496px; }	/* Tipsport.cz */
+		.NP-3000062 .BL	{	background-position :	-525px	-512px; }	/* Skybet */
+		.NP-3000823 .BL	{	background-position :	-525px	-528px; }	/* Bovada.lv */
+		.NP-3000824 .BL	{	background-position :	-525px	-544px; }	/* 18bet */
+		.NP-3000789 .BL	{	background-position :	-525px	-560px; }	/* Unibet.it */
+		.NP-3000767 .BL	{	background-position :	-525px	-576px; }	/* Wettpunkt */
+		.NP-3000490 .BL {	background-position :	-525px	-592px; }	/* Racebets */
+		.NP-3000034 .BL {	background-position :	-525px	-608px; }	/* Veikkaus */
+		.NP-3000822 .BL {	background-position :	-525px	-624px; }	/* Liga Stavok */
+		.NP-3000830 .BL	{	background-position :	-525px	-640px; }	/* PaddyPower.it */
+		.NP-3000828 .BL	{	background-position :	-525px	-656px; }	/* Giochiamo.it */
+
+	/* SPORTS */
+
+		.afl .L-Sport, .s-38 .L-Sport					{ background-position : -54px 0; }
+		.alpine-skiing .L-Sport, .s-53 .L-Sport			{ background-position : -68px 0; }
+		.am-football .L-Sport, .s-5 .L-Sport			{ background-position : -82px 0; }
+		.athletics .L-Sport, .s-13 .L-Sport				{ background-position : -96px 0; }
+		.badminton .L-Sport, .s-14 .L-Sport				{ background-position : -110px 0; }
+		.bandy .L-Sport, .s-40 .L-Sport					{ background-position : -124px 0; }
+	
+		.baseball .L-Sport, .s-9 .L-Sport				{ background-position : -54px -14px; }
+		.basketball .L-Sport, .s-8 .L-Sport				{ background-position : -68px -14px; }
+		.beach-football .L-Sport, .s-66 .L-Sport		{ background-position : -82px -14px; }
+		.beach-volleyball .L-Sport, .s-64 .L-Sport		{ background-position : -96px -14px; }
+		.biathlon .L-Sport, .s-59 .L-Sport				{ background-position : -110px -14px; }
+		.bobsleigh .L-Sport, .s-61 .L-Sport				{ background-position : -124px -14px; }
+	
+		.bowls .L-Sport, .s-67 .L-Sport					{ background-position : -54px -28px; }
+		.canoeing .L-Sport, .s-65 .L-Sport				{ background-position : -68px -28px; }
+		.chess .L-Sport, .s-52 .L-Sport					{ background-position : -82px -28px; }
+		.cricket .L-Sport, .s-26 .L-Sport				{ background-position : -96px -28px; }
+		.cross-country-skiing .L-Sport, .s-54 .L-Sport	{ background-position : -110px -28px; }
+		.curling .L-Sport, .s-60 .L-Sport				{ background-position : -124px -28px; }
+	
+		.cycling .L-Sport, .s-37 .L-Sport				{ background-position : -54px -42px; }
+		.darts .L-Sport, .s-45 .L-Sport					{ background-position : -68px -42px; }
+		.fencing .L-Sport, .s-75 .L-Sport				{ background-position : -82px -42px; }
+		.field-hockey .L-Sport, .s-10 .L-Sport			{ background-position : -96px -42px; }
+		.fighting .L-Sport, .s-25 .L-Sport				{ background-position : -110px -42px; }
+		.figure-skating .L-Sport, .s-69 .L-Sport		{ background-position : -124px -42px; }
+	
+		.floorball .L-Sport, .s-41 .L-Sport				{ background-position : -54px -56px; }
+		.football .L-Sport, .s-1 .L-Sport				{ background-position : -68px -56px; }
+		.freestyle-skiing .L-Sport, .s-55 .L-Sport		{ background-position : -82px -56px; }
+		.futsal .L-Sport, .s-49 .L-Sport				{ background-position : -96px -56px; }
+		.gaelic-football .L-Sport, .s-47 .L-Sport		{ background-position : -110px -56px; }
+		.golf .L-Sport, .s-2 .L-Sport					{ background-position : -124px -56px; }
+	
+		.greyhounds .L-Sport, .s-27 .L-Sport			{ background-position : -54px -70px; }
+		.gymnastics .L-Sport, .s-15 .L-Sport			{ background-position : -68px -70px; }
+		.handball .L-Sport, .s-7 .L-Sport				{ background-position : -82px -70px; }
+		.harness-racing .L-Sport, .s-74 .L-Sport		{ background-position : -96px -70px; }
+		.horse-racing .L-Sport, .s-24 .L-Sport			{ background-position : -110px -70px; }
+		.hurling .L-Sport, .s-46 .L-Sport				{ background-position : -124px -70px; }
+	
+		.ice-hockey .L-Sport, .s-6 .L-Sport				{ background-position : -54px -84px; }
+		.lacrosse .L-Sport, .s-62 .L-Sport				{ background-position : -68px -84px; }
+		.luge .L-Sport, .s-68 .L-Sport					{ background-position : -82px -84px; }
+		.motor-racing .L-Sport, .s-23 .L-Sport			{ background-position : -96px -84px; }
+		.netball .L-Sport, .s-73 .L-Sport				{ background-position : -110px -84px; }
+		.nordic-combined .L-Sport, .s-56 .L-Sport		{ background-position : -124px -84px; }
+	
+		.poker .L-Sport, .s-51 .L-Sport					{ background-position : -54px -98px; }
+		.pool .L-Sport, .s-48 .L-Sport					{ background-position : -68px -98px; }
+		.rowing .L-Sport, .s-16 .L-Sport				{ background-position : -82px -98px; }
+		.rugby-league .L-Sport, .s-28 .L-Sport			{ background-position : -96px -98px; }
+		.rugby-union .L-Sport, .s-39 .L-Sport			{ background-position : -110px -98px; }
+		.sailing .L-Sport, .s-17 .L-Sport				{ background-position : -124px -98px; }
+	
+		.short-track-speed-racing .L-Sport, .s-72 .L-Sport{ background-position : -54px -112px; }
+		.skeleton .L-Sport, .s-70 .L-Sport				{ background-position : -68px -112px; }
+		.ski-jumping .L-Sport, .s-57 .L-Sport			{ background-position : -82px -112px; }
+		.snooker .L-Sport, .s-36 .L-Sport				{ background-position : -96px -112px; }
+		.snowboard .L-Sport, .s-58 .L-Sport				{ background-position : -110px -112px; }
+		.softball .L-Sport, .s-11 .L-Sport				{ background-position : -124px -112px; }
+	
+		.specials .L-Sport, .s-34 .L-Sport				{ background-position : -54px -126px; }
+		.speed-skating .L-Sport, .s-71 .L-Sport			{ background-position : -68px -126px; }
+		.squash .L-Sport, .s-76 .L-Sport				{ background-position : -82px -126px; }
+		.surfing .L-Sport, .s-50 .L-Sport				{ background-position : -96px -126px; }
+		.swimming .L-Sport, .s-18 .L-Sport				{ background-position : -110px -126px; }
+		.table-tennis .L-Sport, .s-63 .L-Sport			{ background-position : -124px -126px; }
+	
+		.tennis .L-Sport, .s-3 .L-Sport					{ background-position : -54px -140px; }
+		.triathlon .L-Sport, .s-19 .L-Sport				{ background-position : -68px -140px; }
+		.volleyball .L-Sport, .s-20 .L-Sport			{ background-position : -82px -140px; }
+		.water-polo .L-Sport, .s-22 .L-Sport			{ background-position : -96px -140px; }
+		.weightlifting .L-Sport, .s-12 .L-Sport			{ background-position : -110px -140px; }
+		.horseball .L-Sport, .s-77 .L-Sport				{ background-position : -124px -140px; }
+
+		.judo .L-Sport, .s-78 .L-Sport					{ background-position : -54px -154px; }
+		.petanque .L-Sport, .s-79 .L-Sport				{ background-position : -68px -154px; }
+		.basque-pelota .L-Sport, .s-80 .L-Sport			{ background-position : -82px -154px; }
+		.diving .L-Sport, .s-81 .L-Sport				{ background-position : -96px -154px; }
+		.equestrian-sports .L-Sport, .s-82 .L-Sport		{ background-position : -110px -154px; }
+		.taekwondo .L-Sport, .s-83 .L-Sport				{ background-position : -124px -154px; }
+
+		.sepak-takraw .L-Sport, .s-84 .L-Sport			{ background-position : -54px -168px; }
+
+	/* COUNTRIES */
+
+		.c-1 .Flag		{ background-position : -177px 0; }			/* Africa */
+		.c-2 .Flag		{ background-position : -192px 0; }			/* Andorra */
+		.c-3 .Flag		{ background-position : -207px 0; }			/* United Arab Emirates */
+		.c-4 .Flag		{ background-position : -222px 0; }			/* Afghanistan */
+		.c-5 .Flag		{ background-position : -237px 0; }			/* Antigua and Barbuda */
+		.c-6 .Flag		{ background-position : -252px 0; }			/* Anguilla */
+		.c-7 .Flag		{ background-position : -267px 0; }			/* Albania */
+		.c-8 .Flag		{ background-position : -282px 0; }			/* Armenia */
+		.c-9 .Flag		{ background-position : -297px 0; }			/* Netherlands Antilles */
+		.c-10 .Flag		{ background-position : -312px 0; }			/* Angola */
+		.c-11 .Flag		{ background-position : -327px 0; }			/* Antarctica */
+		.c-12 .Flag		{ background-position : -342px 0; }			/* Argentina */
+		.c-13 .Flag		{ background-position : -357px 0; }			/* American Samoa */
+		.c-14 .Flag		{ background-position : -372px 0; }			/* Austria */
+		.c-15 .Flag		{ background-position : -387px 0; }			/* Australia */
+
+		.c-16 .Flag		{ background-position : -177px -11px; }		/* Aruba */
+		.c-17 .Flag		{ background-position : -192px -11px; }		/* Azerbaijan */
+		.c-18 .Flag		{ background-position : -207px -11px; }		/* Bosnia and Herzegovina */
+		.c-19 .Flag		{ background-position : -222px -11px; }		/* Barbados */
+		.c-20 .Flag		{ background-position : -237px -11px; }		/* Bangladesh */
+		.c-21 .Flag		{ background-position : -252px -11px; }		/* Belgium */
+		.c-22 .Flag		{ background-position : -267px -11px; }		/* Burkina Faso */
+		.c-23 .Flag, .bg_BG .Flag, .bg_BG .OptionsIcon		{ background-position : -282px -11px; }		/* Bulgaria */
+		.c-24 .Flag		{ background-position : -297px -11px; }		/* Bahrain */
+		.c-25 .Flag		{ background-position : -312px -11px; }		/* Burundi */
+		.c-26 .Flag		{ background-position : -327px -11px; }		/* Benin */
+		.c-27 .Flag		{ background-position : -342px -11px; }		/* Bermuda */
+		.c-28 .Flag		{ background-position : -357px -11px; }		/* Brunei Darussalam */
+		.c-29 .Flag		{ background-position : -372px -11px; }		/* Bolivia */
+		.c-30 .Flag		{ background-position : -387px -11px; }		/* Brazil */
+
+		.c-31 .Flag		{ background-position : -177px -22px; }		/* Bahamas */
+		.c-32 .Flag		{ background-position : -192px -22px; }		/* Bhutan */
+		.c-33 .Flag		{ background-position : -207px -22px; }		/* Bouvet Island */
+		.c-34 .Flag		{ background-position : -222px -22px; }		/* Botswana */
+		.c-35 .Flag		{ background-position : -237px -22px; }		/* Belarus */
+		.c-36 .Flag		{ background-position : -252px -22px; }		/* Belize */
+		.c-37 .Flag		{ background-position : -267px -22px; }		/* Canada */
+		.c-38 .Flag		{ background-position : -282px -22px; }		/* Cocos (Keeling) Island */
+		.c-39 .Flag		{ background-position : -297px -22px; }		/* Central African Republic */
+		.c-40 .Flag		{ background-position : -312px -22px; }		/* Congo */
+		.c-41 .Flag		{ background-position : -327px -22px; }		/* Switzerland */
+		.c-42 .Flag		{ background-position : -342px -22px; }		/* Cote d'Ivoire (Ivory Coast) */
+		.c-43 .Flag		{ background-position : -357px -22px; }		/* Cook Islands */
+		.c-44 .Flag		{ background-position : -372px -22px; }		/* Chile */
+		.c-45 .Flag		{ background-position : -387px -22px; }		/* Cameroon */
+
+		.c-46 .Flag, .zh_CN .Flag, .zh_CN .OptionsIcon, .yu_CN .Flag, .yu_CN .OptionsIcon		{ background-position : -177px -33px; }		/* China */
+		.c-47 .Flag		{ background-position : -192px -33px; }		/* Colombia */
+		.c-48 .Flag		{ background-position : -207px -33px; }		/* Costa Rica */
+		.c-49 .Flag		{ background-position : -222px -33px; }		/* Cuba */
+		.c-50 .Flag		{ background-position : -237px -33px; }		/* Cape Verde */
+		.c-51 .Flag		{ background-position : -252px -33px; }		/* Christmas Island */
+		.c-52 .Flag		{ background-position : -267px -33px; }		/* Cyprus */
+		.c-53 .Flag, .cz_CZ .Flag, .cz_CZ .OptionsIcon		{ background-position : -282px -33px; }		/* Czech Republic */
+		.c-54 .Flag, .de_DE .Flag, .de_DE .OptionsIcon		{ background-position : -297px -33px; }		/* Germany */
+		.c-55 .Flag		{ background-position : -312px -33px; }		/* Djibouti */
+		.c-56 .Flag, .da_DK .Flag, .da_DK .OptionsIcon, .da .Flag, .da .OptionsIcon		{ background-position : -327px -33px; }		/* Denmark */
+		.c-57 .Flag		{ background-position : -342px -33px; }		/* Dominica */
+		.c-58 .Flag		{ background-position : -357px -33px; }		/* Dominican Republic */
+		.c-59 .Flag		{ background-position : -372px -33px; }		/* Algeria */
+		.c-60 .Flag		{ background-position : -387px -33px; }		/* Ecuador */
+
+		.c-61 .Flag		{ background-position : -177px -44px; }		/* Estonia */
+		.c-62 .Flag		{ background-position : -192px -44px; }		/* Egypt */
+		.c-63 .Flag		{ background-position : -207px -44px; }		/* Western Sahara */
+		.c-64 .Flag		{ background-position : -222px -44px; }		/* Eritrea */
+		.c-65 .Flag, .es_ES .Flag, .es_ES .OptionsIcon		{ background-position : -237px -44px; }		/* Spain */
+		.c-66 .Flag		{ background-position : -252px -44px; }		/* Ethiopia */
+		.c-67 .Flag		{ background-position : -267px -44px; }		/* Europe */
+		.c-68 .Flag, .fi_FL .Flag, .fi_FL .OptionsIcon, .fi_FI .Flag, .fi_FI .OptionsIcon		{ background-position : -282px -44px; }		/* Finland */
+		.c-69 .Flag		{ background-position : -297px -44px; }		/* Fiji */
+		.c-70 .Flag		{ background-position : -312px -44px; }		/* Falkland Islands */
+		.c-71 .Flag		{ background-position : -327px -44px; }		/* Micronesia */
+		.c-72 .Flag		{ background-position : -342px -44px; }		/* Faroe Islands */
+		.c-73 .Flag, .fr_FR .Flag, .fr_FR .OptionsIcon		{ background-position : -357px -44px; }		/* France */
+		.c-74 .Flag		{ background-position : -372px -44px; }		/* Palestine */
+		.c-75 .Flag		{ background-position : -387px -44px; }		/* Gabon */
+
+		.c-76 .Flag, .en_UK .Flag, .en_UK .OptionsIcon		{ background-position : -177px -55px; }		/* United Kingdom */
+		.c-77 .Flag		{ background-position : -192px -55px; }		/* England */
+		.c-78 .Flag		{ background-position : -207px -55px; }		/* Scotland */
+		.c-79 .Flag		{ background-position : -222px -55px; }		/* Northern Ireland */
+		.c-80 .Flag		{ background-position : -237px -55px; }		/* Wales */
+		.c-81 .Flag		{ background-position : -252px -55px; }		/* Grenada */
+		.c-82 .Flag, .ka_GE .Flag, .ka_GE .OptionsIcon		{ background-position : -267px -55px; }		/* Georgia */
+		.c-83 .Flag		{ background-position : -282px -55px; }		/* French Guiana */
+		.c-84 .Flag		{ background-position : -297px -55px; }		/* Ghana */
+		.c-85 .Flag		{ background-position : -312px -55px; }		/* Gibraltar */
+		.c-86 .Flag		{ background-position : -327px -55px; }		/* Greenland */
+		.c-87 .Flag		{ background-position : -342px -55px; }		/* Gambia */
+		.c-88 .Flag		{ background-position : -357px -55px; }		/* Guinea */
+		.c-89 .Flag		{ background-position : -372px -55px; }		/* Guadeloupe */
+		.c-90 .Flag		{ background-position : -387px -55px; }		/* Equatorial Guinea */
+
+		.c-91 .Flag, .gr_GR .Flag, .gr_GR .OptionsIcon		{ background-position : -177px -66px; }		/* Greece */
+		.c-92 .Flag		{ background-position : -192px -66px; }		/* South Georgia and The South Sandwich Islands */
+		.c-93 .Flag		{ background-position : -207px -66px; }		/* Guatemala */
+		.c-94 .Flag		{ background-position : -222px -66px; }		/* Guam */
+		.c-95 .Flag		{ background-position : -237px -66px; }		/* Guinea-Bissau */
+		.c-96 .Flag		{ background-position : -252px -66px; }		/* Guyana */
+		.c-97 .Flag		{ background-position : -267px -66px; }		/* Hong Kong */
+		.c-98 .Flag		{ background-position : -282px -66px; }		/* Heard Island and McDonald Island */
+		.c-99 .Flag		{ background-position : -297px -66px; }		/* Honduras */
+		.c-100 .Flag, .hr_HR .Flag, .hr_HR .OptionsIcon	{ background-position : -312px -66px; }		/* Croatia */
+		.c-101 .Flag	{ background-position : -327px -66px; }		/* Haiti */
+		.c-102 .Flag, .hu_HU .Flag, .hu_HU .OptionsIcon	{ background-position : -342px -66px; }		/* Hungary */
+		.c-103 .Flag, .id_IN .Flag, .id_IN .OptionsIcon	{ background-position : -357px -66px; }		/* Indonesia */
+		.c-104 .Flag	{ background-position : -372px -66px; }		/* Ireland */
+		.c-105 .Flag, .he_IL .Flag, .he_IL .OptionsIcon	{ background-position : -387px -66px; }		/* Israel */
+
+		.c-106 .Flag	{ background-position : -177px -77px; }		/* India */
+		.c-107 .Flag	{ background-position : -192px -77px; }		/* British Indian Ocean Territory */
+		.c-108 .Flag	{ background-position : -207px -77px; }		/* Iraq */
+		.c-109 .Flag	{ background-position : -222px -77px; }		/* Iran */
+		.c-110 .Flag	{ background-position : -237px -77px; }		/* Iceland */
+		.c-111 .Flag, .it_IT .Flag, .it_IT .OptionsIcon	{ background-position : -252px -77px; }		/* Italy */
+		.c-112 .Flag	{ background-position : -267px -77px; }		/* Jamaica */
+		.c-113 .Flag	{ background-position : -282px -77px; }		/* Jordan */
+		.c-114 .Flag, .ja_JP .Flag, .ja_JP .OptionsIcon	{ background-position : -297px -77px; }		/* Japan */
+		.c-115 .Flag	{ background-position : -312px -77px; }		/* Kenya */
+		.c-116 .Flag	{ background-position : -327px -77px; }		/* Kyrgyzstan */
+		.c-117 .Flag	{ background-position : -342px -77px; }		/* Cambodia */
+		.c-118 .Flag	{ background-position : -357px -77px; }		/* Kiribati */
+		.c-119 .Flag	{ background-position : -372px -77px; }		/* Comoros */
+		.c-120 .Flag	{ background-position : -387px -77px; }		/* Saint Kitts And Nevis */
+
+		.c-121 .Flag	{ background-position : -177px -88px; }		/* Democratic Peoples Republic of Korea */
+		.c-122 .Flag	{ background-position : -192px -88px; }		/* Republic of Korea */
+		.c-123 .Flag	{ background-position : -207px -88px; }		/* Kuwait */
+		.c-124 .Flag	{ background-position : -222px -88px; }		/* Cayman Islands */
+		.c-125 .Flag	{ background-position : -237px -88px; }		/* Kazakhstan */
+		.c-126 .Flag	{ background-position : -252px -88px; }		/* Laos */
+		.c-127 .Flag	{ background-position : -267px -88px; }		/* Lebanon */
+		.c-128 .Flag	{ background-position : -282px -88px; }		/* Saint Lucia */
+		.c-129 .Flag	{ background-position : -297px -88px; }		/* Liechtenstein */
+		.c-130 .Flag	{ background-position : -312px -88px; }		/* Sri Lanka */
+		.c-131 .Flag	{ background-position : -327px -88px; }		/* Liberia */
+		.c-132 .Flag	{ background-position : -342px -88px; }		/* Lesotho */
+		.c-133 .Flag, .lt_LT .Flag, .lt_LT .OptionsIcon	{ background-position : -357px -88px; }		/* Lithuania */
+		.c-134 .Flag	{ background-position : -372px -88px; }		/* Luxembourg */
+		.c-135 .Flag, .lv_LV .Flag, .lv_LV .OptionsIcon	{ background-position : -387px -88px; }		/* Latvia */
+
+		.c-136 .Flag	{ background-position : -177px -99px; }		/* Libya */
+		.c-137 .Flag	{ background-position : -192px -99px; }		/* Morocco */
+		.c-138 .Flag	{ background-position : -207px -99px; }		/* Monaco */
+		.c-139 .Flag	{ background-position : -222px -99px; }		/* Moldova */
+		.c-140 .Flag	{ background-position : -237px -99px; }		/* Madagascar */
+		.c-141 .Flag	{ background-position : -252px -99px; }		/* Marshall Islands */
+		.c-142 .Flag, .mk_MK .Flag, .mk_MK .OptionsIcon	{ background-position : -267px -99px; }		/* Republic of Macedonia */
+		.c-143 .Flag	{ background-position : -282px -99px; }		/* Mali */
+		.c-144 .Flag	{ background-position : -297px -99px; }		/* Myanmar */
+		.c-145 .Flag	{ background-position : -312px -99px; }		/* Mongolia */
+		.c-146 .Flag	{ background-position : -327px -99px; }		/* Macao */
+		.c-147 .Flag	{ background-position : -342px -99px; }		/* Northern Mariana Islands */
+		.c-148 .Flag	{ background-position : -357px -99px; }		/* Martinique */
+		.c-149 .Flag	{ background-position : -372px -99px; }		/* Mauritania */
+		.c-150 .Flag	{ background-position : -387px -99px; }		/* Montserrat */
+
+		.c-151 .Flag	{ background-position : -177px -110px; }	/* Malta */
+		.c-152 .Flag	{ background-position : -192px -110px; }	/* Mauritius */
+		.c-153 .Flag	{ background-position : -207px -110px; }	/* Maldives */
+		.c-154 .Flag	{ background-position : -222px -110px; }	/* Malawi */
+		.c-155 .Flag	{ background-position : -237px -110px; }	/* Mexico */
+		.c-156 .Flag	{ background-position : -252px -110px; }	/* Malaysia */
+		.c-157 .Flag	{ background-position : -267px -110px; }	/* Mozambique */
+		.c-158 .Flag	{ background-position : -282px -110px; }	/* Namibia */
+		.c-159 .Flag	{ background-position : -297px -110px; }	/* New Caledonia */
+		.c-160 .Flag	{ background-position : -312px -110px; }	/* Niger */
+		.c-161 .Flag	{ background-position : -327px -110px; }	/* Norfolk Island */
+		.c-162 .Flag	{ background-position : -342px -110px; }	/* Nigeria */
+		.c-163 .Flag	{ background-position : -357px -110px; }	/* Nicaragua */
+		.c-164 .Flag, .nl_NL .Flag, .nl_NL .OptionsIcon	{ background-position : -372px -110px; }	/* Netherlands */
+		.c-165 .Flag, .no_NO .Flag, .no_NO .OptionsIcon	{ background-position : -387px -110px; }	/* Norway */
+
+		.c-166 .Flag	{ background-position : -177px -121px; }	/* Nepal */
+		.c-167 .Flag	{ background-position : -192px -121px; }	/* Nauru */
+		.c-168 .Flag	{ background-position : -207px -121px; }	/* Niue */
+		.c-169 .Flag	{ background-position : -222px -121px; }	/* New Zealand */
+		.c-170 .Flag	{ background-position : -237px -121px; }	/* Oman */
+		.c-172 .Flag	{ background-position : -252px -121px; }	/* Panama */
+		.c-173 .Flag	{ background-position : -267px -121px; }	/* Peru */
+		.c-174 .Flag	{ background-position : -282px -121px; }	/* French Polynesia */
+		.c-175 .Flag	{ background-position : -297px -121px; }	/* Papua New Guinea */
+		.c-176 .Flag	{ background-position : -312px -121px; }	/* Philippines */
+		.c-177 .Flag	{ background-position : -327px -121px; }	/* Pakistan */
+		.c-178 .Flag, .pl_PL .Flag, .pl_PL .OptionsIcon	{ background-position : -342px -121px; }	/* Poland */
+		.c-179 .Flag	{ background-position : -357px -121px; }	/* Saint Pierre and Miquelon */
+		.c-180 .Flag	{ background-position : -372px -121px; }	/* Pitcairn */
+		.c-181 .Flag	{ background-position : -387px -121px; }	/* Puerto Rico */
+
+		.c-182 .Flag, .pt_PT .Flag, .pt_PT .OptionsIcon	{ background-position : -177px -132px; }	/* Portugal */
+		.c-183 .Flag	{ background-position : -192px -132px; }	/* Palau */
+		.c-184 .Flag	{ background-position : -207px -132px; }	/* Paraguay */
+		.c-185 .Flag	{ background-position : -222px -132px; }	/* Qatar */
+		.c-186 .Flag	{ background-position : -237px -132px; }	/* Reunion */
+		.c-187 .Flag, .ro_RO .Flag, .ro_RO .OptionsIcon	{ background-position : -252px -132px; }	/* Romania */
+		.c-188 .Flag, .ru_RU .Flag, .ru_RU .OptionsIcon	{ background-position : -267px -132px; }	/* Russia */
+		.c-189 .Flag	{ background-position : -282px -132px; }	/* Rwanda */
+		.c-190 .Flag	{ background-position : -297px -132px; }	/* Saudi Arabia */
+		.c-191 .Flag	{ background-position : -312px -132px; }	/* Solomon Islands */
+		.c-192 .Flag	{ background-position : -327px -132px; }	/* Seychelles */
+		.c-193 .Flag	{ background-position : -342px -132px; }	/* Sudan */
+		.c-194 .Flag, .sv_SE .Flag, .sv_SE .OptionsIcon	{ background-position : -357px -132px; }	/* Sweden */
+		.c-195 .Flag	{ background-position : -372px -132px; }	/* Singapore */
+		.c-196 .Flag	{ background-position : -387px -132px; }	/* Saint Helena */
+
+		.c-197 .Flag	{ background-position : -177px -143px; }	/* Slovenia */
+		.c-198 .Flag	{ background-position : -192px -143px; }	/* Svalbard And Jan Mayen Islands */
+		.c-199 .Flag, .sk_SL .Flag, .sk_SL .OptionsIcon	{ background-position : -207px -143px; }	/* Slovakia */
+		.c-200 .Flag	{ background-position : -222px -143px; }	/* Sierra Leone */
+		.c-201 .Flag	{ background-position : -237px -143px; }	/* San Marino */
+		.c-203 .Flag	{ background-position : -252px -143px; }	/* Senegal */
+		.c-204 .Flag	{ background-position : -267px -143px; }	/* Somalia */
+		.c-205 .Flag	{ background-position : -282px -143px; }	/* Surinam */
+		.c-206 .Flag	{ background-position : -297px -143px; }	/* Sao Tome and Principe */
+		.c-207 .Flag	{ background-position : -312px -143px; }	/* El Salvador */
+		.c-208 .Flag	{ background-position : -327px -143px; }	/* Syria */
+		.c-209 .Flag	{ background-position : -342px -143px; }	/* Swaziland */
+		.c-210 .Flag	{ background-position : -357px -143px; }	/* Turks And Caicos Islands */
+		.c-211 .Flag	{ background-position : -372px -143px; }	/* Chad */
+		.c-212 .Flag	{ background-position : -387px -143px; }	/* French Southern Territories */
+
+		.c-213 .Flag	{ background-position : -177px -154px; }	/* Togo */
+		.c-214 .Flag, .th_TH .Flag, .th_TH .OptionsIcon	{ background-position : -192px -154px; }	/* Thailand */
+		.c-215 .Flag	{ background-position : -207px -154px; }	/* Tajikistan */
+		.c-216 .Flag	{ background-position : -222px -154px; }	/* Tokelau */
+		.c-217 .Flag	{ background-position : -237px -154px; }	/* Turkmenistan */
+		.c-218 .Flag	{ background-position : -252px -154px; }	/* Tunisia */
+		.c-219 .Flag	{ background-position : -267px -154px; }	/* Tonga */
+		.c-220 .Flag	{ background-position : -282px -154px; }	/* East Timor */
+		.c-221 .Flag, .tr_TR .Flag, .tr_TR .OptionsIcon	{ background-position : -297px -154px; }	/* Turkey */
+		.c-222 .Flag	{ background-position : -312px -154px; }	/* Trinidad And Tobago */
+		.c-223 .Flag	{ background-position : -327px -154px; }	/* Tuvalu */
+		.c-224 .Flag	{ background-position : -342px -154px; }	/* Taiwan / Chinese Taipei */
+		.c-225 .Flag	{ background-position : -357px -154px; }	/* Tanzania */
+		.c-226 .Flag, .uk_UK .Flag, .uk_UK .OptionsIcon	{ background-position : -372px -154px; }	/* Ukraine */
+		.c-227 .Flag	{ background-position : -387px -154px; }	/* Uganda */
+
+		.c-228 .Flag	{ background-position : -177px -165px; }	/* United States Minor Outlying Islands */
+		.c-229 .Flag, .en_US .Flag, .en_US .OptionsIcon	{ background-position : -192px -165px; }	/* United States */
+		.c-230 .Flag	{ background-position : -207px -165px; }	/* Uruguay */
+		.c-231 .Flag	{ background-position : -222px -165px; }	/* Uzbekistan */
+		.c-232 .Flag	{ background-position : -237px -165px; }	/* Vatican City State */
+		.c-233 .Flag	{ background-position : -252px -165px; }	/* Saint Vincent and The Grenadines */
+		.c-234 .Flag	{ background-position : -267px -165px; }	/* Venezuela */
+		.c-235 .Flag	{ background-position : -282px -165px; }	/* British Virgin Islands */
+		.c-236 .Flag	{ background-position : -297px -165px; }	/* US Virgin Islands */
+		.c-237 .Flag	{ background-position : -312px -165px; }	/* Vietnam */
+		.c-238 .Flag	{ background-position : -327px -165px; }	/* Vanuatu */
+		.c-239 .Flag	{ background-position : -342px -165px; }	/* Wallis And Futuna Islands */
+		.c-240 .Flag, .en_GB .Flag, .wo .OptionsIcon, .en_GB .OptionsIcon	{ background-position : -357px -165px; }	/* World */
+		.c-241 .Flag	{ background-position : -372px -165px; }	/* Samoa */
+		.c-243 .Flag	{ background-position : -387px -165px; }	/* Yemen */
+
+		.c-244 .Flag	{ background-position : -177px -176px; }	/* Mayotte */
+		.c-245 .Flag	{ background-position : -192px -176px; }	/* Serbia and Montenegro - former Yugoslavia */
+		.c-246 .Flag	{ background-position : -207px -176px; }	/* South Africa */
+		.c-247 .Flag	{ background-position : -222px -176px; }	/* Zambia */
+		.c-248 .Flag	{ background-position : -237px -176px; }	/* Democratic Republic of Congo */
+		.c-249 .Flag	{ background-position : -252px -176px; }	/* Zimbabwe */
+		.c-250 .Flag	{ background-position : -267px -176px; }	/* North and Central America */
+		.c-251 .Flag	{ background-position : -282px -176px; }	/* West Indies */
+		.c-253 .Flag	{ background-position : -297px -176px; }	/* Asia */
+		.c-254 .Flag	{ background-position : -312px -176px; }	/* Isle of Man */
+		.c-255 .Flag, .sr_YU .Flag, .sr_YU .OptionsIcon	{ background-position : -327px -176px; }	/* Serbia */
+		.c-256 .Flag, .me_ME .Flag, .me_ME .OptionsIcon	{ background-position : -342px -176px; }	/* Montenegro */
+		.c-257 .Flag	{ background-position : -357px -176px; }	/* Zanzibar */
+		.c-258 .Flag	{ background-position : -372px -176px; }	/* Iroquois Confederacy */
+		.c-10000 .Flag	{ background-position : -387px -176px; }	/* North America */
+
+		.c-10002 .Flag	{ background-position : -177px -187px; }	/* Oceania */
+		.c-10003 .Flag	{ background-position : -192px -187px; }	/* Antarctica */
+		.c-10004 .Flag	{ background-position : -207px -187px; }	/* UK and Ireland */
+		.c-10008 .Flag	{ background-position : -222px -187px; }	/* South America */
+		.c-10013 .Flag	{ background-position : -237px -187px; }	/* Curacao */
+
+/* PRINT STYLES */
+@media print {
+
+	/* generic print styles */
+	* { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+	a, a:visited { color: #444 !important; text-decoration: underline; }
+	abbr[title]:after { content: " (" attr(title) ")"; font-size : 0.75em; }
+	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+	.ir { text-indent : 0; }
+	pre, blockquote { border: 1px solid #666; page-break-inside: avoid; }
+	thead { display: table-header-group; }
+	tr, img { page-break-inside: avoid; }
+	img { max-width: 100% !important; }
+	@page { margin: 0.5cm; }
+	p, h2, h3 { orphans: 3; widows: 3; }
+	h2, h3{ page-break-after: avoid; }
+
+	/* structural print styles */
+
+}
+
+.Showcase { display : block; width : auto; height : 100%; overflow-x : scroll; }
+	.ShowcaseImg { display : block; }
